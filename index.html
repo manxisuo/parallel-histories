@@ -69,25 +69,54 @@ header{padding:13px 16px}.brand{font-size:17px}.brand small{font-size:8px}
 .compare-region-count{float:right;color:#71899a;font-size:10px}.compare-event{transition:background .18s}.compare-event:focus-visible{outline:2px solid #d4ae72;outline-offset:2px}
 .compare-event-distance{display:block;font-size:9px;color:#778d9e;margin-top:4px}
 @media(max-width:700px){.compare-filters{width:100%}.compare-filters .window-picker{flex:1;min-width:130px}.compare-filters .window-picker select{max-width:none;width:100%}}
-</style></head><body><header><div class="brand">时空对望<small>PARALLEL HISTORIES</small></div><div class="nav"><button id="home">时间长河</button><button id="museumNav">历史展厅</button><button id="atlasNav">历史地图</button><button id="random">随机穿越</button></div></header><section class="hero"><div class="eyebrow">A JOURNEY THROUGH SHARED TIME</div><h1>时间，是文明共同的坐标。</h1><p>同一个时代，中国与世界的另一端，正在书写怎样的故事？<br>拖动时间，探索相遇与错过的历史。</p></section><main class="shell"><section class="comparison-intro"><div class="eyebrow">ONE ERA · MANY CIVILIZATIONS</div><h2>把世界放回同一条时间线上</h2><p>先选择一个年代，观察中国与世界各地同时发生的事件；再沿着事件、地点与交流网络深入探索。</p><div class="comparison-pillars"><span>时间对齐</span><span>文明对照</span><span>联系与差异</span></div></section><section class="panel"><div class="panelhead"><div><div class="hint">CURRENT TIME · 当前时间</div><div class="date" id="date"></div></div><div class="hint">公元前 1600 年 — 公元 1949 年</div></div><div class="toolbar"><button id="minus" aria-label="缩小">− 缩小</button><button id="plus" aria-label="放大">＋ 放大</button><button id="back">◀ 前进百年</button><button id="forward">后退百年 ▶</button><input id="search" placeholder="搜索历史事件，如：唐朝、罗马" aria-label="搜索历史事件"><button id="find">搜索</button></div><div class="canvaswrap" id="wrap"><canvas id="timeline" aria-label="中国与世界历史双轨时间轴"></canvas></div><div class="bottom"><span>金色 · 中国历史　　青色 · 世界历史</span><span>拖动平移 · 滚轮或双指缩放 · 点击节点</span></div></section><section class="era-compare" aria-labelledby="eraCompareTitle">
+
+.track-picker{padding:4px 27px 16px;border-top:1px solid #ffffff10}.track-picker-title{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:12px 0 10px;color:#c9a875;font-size:11px;letter-spacing:.1em}.track-picker-title>div{display:flex;gap:7px}.track-picker button{font:inherit;cursor:pointer}.track-picker-title button{border:1px solid #ffffff2c;border-radius:18px;color:#c6d2da;background:#ffffff08;font-size:11px;padding:6px 10px;letter-spacing:0}.track-toggles{display:flex;gap:8px;flex-wrap:wrap}.track-chip{display:flex;gap:7px;align-items:center;cursor:pointer;border:1px solid #ffffff20;border-radius:20px;padding:8px 11px;background:#ffffff09;color:#d1dce2;font-size:12px}.track-chip input{accent-color:var(--track-color,#d4ae72);margin:0;width:14px;height:14px}.track-chip[data-active="true"]{border-color:var(--track-color,#d4ae72);background:#ffffff12}.track-chip .track-dot{width:8px;height:8px;border-radius:50%;background:var(--track-color,#d4ae72)}.track-count{font-size:10px;color:#899dac}.track-hint{font-size:10px;color:#8396a5;margin:9px 0 0;line-height:1.6}.canvaswrap{transition:height .18s ease}.track-legend{font-size:10px;color:#8298a5}@media(max-width:650px){.track-picker{padding:5px 14px 13px}.track-chip{font-size:11px;padding:7px 9px}.track-toggles{gap:6px}.track-picker-title{font-size:10px}}
+</style></head><body><header><div class="brand">时空对望<small>PARALLEL HISTORIES</small></div><div class="nav"><button id="home">时间长河</button><button id="museumNav">历史展厅</button><button id="atlasNav">历史地图</button><button id="random">随机穿越</button></div></header><section class="hero"><div class="eyebrow">A JOURNEY THROUGH SHARED TIME</div><h1>时间，是文明共同的坐标。</h1><p>同一个时代，中国与世界的另一端，正在书写怎样的故事？<br>拖动时间，探索相遇与错过的历史。</p></section><main class="shell"><section class="comparison-intro"><div class="eyebrow">ONE ERA · MANY CIVILIZATIONS</div><h2>把世界放回同一条时间线上</h2><p>先选择一个年代，观察中国与世界各地同时发生的事件；再沿着事件、地点与交流网络深入探索。</p><div class="comparison-pillars"><span>时间对齐</span><span>文明对照</span><span>联系与差异</span></div></section><section class="panel"><div class="panelhead"><div><div class="hint">CURRENT TIME · 当前时间</div><div class="date" id="date"></div></div><div class="hint">公元前 1600 年 — 公元 1949 年</div></div><div class="toolbar"><button id="minus" aria-label="缩小">− 缩小</button><button id="plus" aria-label="放大">＋ 放大</button><button id="back">◀ 前进百年</button><button id="forward">后退百年 ▶</button><input id="search" placeholder="搜索历史事件，如：唐朝、罗马" aria-label="搜索历史事件"><button id="find">搜索</button></div><div class="track-picker" aria-label="选择文明地区轨道"><div class="track-picker-title"><span>文明地区轨道 · REGIONAL TRACKS</span><div><button type="button" id="tracksDefault">推荐组合</button><button type="button" id="tracksAll">显示全部</button></div></div><div id="trackToggles" class="track-toggles"></div><div id="trackHint" class="track-hint">按地区选择希望对照的历史轨道。</div></div><div class="canvaswrap" id="wrap"><canvas id="timeline" aria-label="按地区分组的多轨历史时间轴"></canvas></div><div class="bottom"><span>按颜色区分地理地区 · 可自由选择显示轨道</span><span>拖动平移 · 滚轮或双指缩放 · 点击节点</span></div></section><section class="era-compare" aria-labelledby="eraCompareTitle">
 <div class="era-compare-head"><div><div class="compare-kicker">SAME ERA · DIFFERENT PLACES</div><h2 id="eraCompareTitle">同一时代，世界正在发生什么？</h2><p>以当前时间轴中心年份为基准，查看前后一定时间范围内已收录的历史事件。</p></div>
 <div class="compare-filters"><label class="window-picker">观察窗口 <select id="compareWindow" aria-label="选择历史对照时间窗口"><option value="5">前后 5 年</option><option value="10">前后 10 年</option><option value="25" selected>前后 25 年</option><option value="50">前后 50 年</option><option value="100">前后 100 年</option></select></label><label class="window-picker">事件类型 <select id="compareCategory" aria-label="筛选历史事件类型"><option value="all">全部类型</option><option>政权与制度</option><option>政治与制度</option><option>战争与冲突</option><option>思想与文化</option><option>宗教与思想</option><option>科技与知识</option><option>航海与交流</option></select></label></div></div>
 <div class="compare-current"><span>当前观察时点</span><strong id="compareYear">公元 750 年</strong><small id="compareRange">公元 725 年 — 公元 775 年</small></div>
 <div class="compare-summary" id="compareSummary" aria-live="polite"></div><div id="compareColumns" class="compare-columns" aria-live="polite"></div>
 <div class="compare-footnote">时间接近不代表存在直接联系。事件地点与主题用于帮助浏览；只有具备史料依据的关系才会在后续版本中标注为传播、交流或因果联系。</div>
 </section><section class="cards"><article class="card"><div class="tag">CHINA · 中国</div><h2 id="ctitle"></h2><p id="cdesc"></p><button class="open-detail" id="copen">进入历史展厅 ↗</button></article><article class="card world"><div class="tag">WORLD · 世界</div><h2 id="wtitle"></h2><p id="wdesc"></p><button class="open-detail" id="wopen">进入历史展厅 ↗</button></article></section><section class="city-portal" aria-labelledby="cityPortalTitle"><div class="city-portal-head"><div><div class="city-portal-kicker">IMMERSIVE STORY WORLDS · 沉浸式历史专题</div><h2 id="cityPortalTitle">走进历史现场，探索文明如何相遇。</h2><p>城市场景是历史时间轴的延伸入口。它帮助理解地点、环境与交流网络，但不替代跨文明的时间对照。</p></div><a class="city-portal-all" href="./atlas.html?year=780&network=silk-road">进入历史地图 →</a></div><div class="city-portal-grid"><a class="city-tile tang" href="./atlas.html?year=780&network=silk-road&place=changan"><small>TANG DYNASTY · 780 CE</small><strong>长安</strong><span>坊市与世界之都 →</span></a><a class="city-tile oasis" href="./atlas.html?year=780&network=silk-road&place=samarkand"><small>CENTRAL ASIA · 8TH CENTURY</small><strong>撒马尔罕</strong><span>绿洲与文明交汇 →</span></a><a class="city-tile round" href="./atlas.html?year=780&network=silk-road&place=baghdad"><small>ABBASID ERA · 780 CE</small><strong>巴格达</strong><span>圆城初兴 →</span></a><a class="city-tile harbor" href="./atlas.html?year=1405&network=zheng-he&place=malacca"><small>INDIAN OCEAN · 15TH CENTURY</small><strong>马六甲</strong><span>季风与帆影 →</span></a></div></section><div class="foot">历史年代与分期存在研究差异；本网站为精选历史对照原型，非完整历史数据库。</div></main><div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="历史事件展厅"><article class="museum"><button class="close" id="close" aria-label="关闭">×</button><div class="tag" id="mtag"></div><h2 id="mtitle"></h2><p id="mdesc"></p><div class="source" id="msource"></div><div id="storyAction" style="margin-top:18px"></div></article></div><script>
-let events=[],periods=[],compareWindow=25,lastCompareKey='';
+let events=[],periods=[],tracks=[],visibleTracks=new Set(),compareWindow=25,lastCompareKey='',trackRows=[];
 const toDisplayYear=y=>y<=0?'前'+(1-y)+'年':'公元 '+y+' 年';
 async function loadHistoricalData(){
-const response=await fetch('./data/history.json',{cache:'no-cache'});
-if(!response.ok)throw Error('历史数据加载失败 HTTP '+response.status);
-const data=await response.json();
-if(!Array.isArray(data.events)||!Array.isArray(data.periods))throw Error('历史数据格式错误');
-events=data.events.map(e=>({y:e.year,t:e.title,c:e.civilization,d:e.summary,s:e.sourceUrl,storyId:e.storyId,placeIds:e.placeIds||[],region:e.region|| (e.civilization==='cn'?'东亚 · 中国':'世界其他地区'),category:e.category||'历史事件',precision:e.precision||'approximate'}));
-periods=data.periods.map(p=>({a:p.startYear,b:p.endYear,t:p.name,c:p.civilization}));
-lastCompareKey='';
-update();
+const [historyResponse,tracksResponse]=await Promise.all([fetch('./data/history.json',{cache:'no-cache'}),fetch('./data/regions.json',{cache:'no-cache'})]);
+if(!historyResponse.ok||!tracksResponse.ok)throw Error('历史数据或地区轨道加载失败');
+const [data,registry]=await Promise.all([historyResponse.json(),tracksResponse.json()]);
+if(!Array.isArray(data.events)||!Array.isArray(data.periods)||!Array.isArray(registry.tracks))throw Error('历史数据格式错误');
+tracks=registry.tracks;
+visibleTracks=new Set(tracks.filter(t=>t.defaultVisible).map(t=>t.id));
+events=data.events.map(e=>({y:e.year,t:e.title,c:e.civilization,trackId:e.trackId|| (e.civilization==='cn'?'china':'global'),d:e.summary,s:e.sourceUrl,storyId:e.storyId,placeIds:e.placeIds||[],region:e.region|| (e.civilization==='cn'?'东亚 · 中国':'世界其他地区'),category:e.category||'历史事件',precision:e.precision||'approximate'}));
+periods=data.periods.map(p=>({a:p.startYear,b:p.endYear,t:p.name,c:p.civilization,trackId:p.trackId|| (p.civilization==='cn'?'china':'global')}));
+renderTrackPicker();updateTrackGeometry();
+lastCompareKey='';update();
 }
+function renderTrackPicker(){
+const root=document.getElementById('trackToggles');root.replaceChildren();
+for(const tr of tracks){
+const chip=document.createElement('label');chip.className='track-chip';chip.style.setProperty('--track-color',tr.color);chip.dataset.active=String(visibleTracks.has(tr.id));
+const input=document.createElement('input');input.type='checkbox';input.checked=visibleTracks.has(tr.id);input.setAttribute('aria-label','显示'+tr.label+'时间轨道');
+const dot=document.createElement('span');dot.className='track-dot';
+const name=document.createElement('span');name.textContent=tr.label;
+const counter=document.createElement('span');counter.className='track-count';counter.textContent=events.filter(e=>e.trackId===tr.id).length;
+chip.append(input,dot,name,counter);input.addEventListener('change',()=>{
+if(input.checked)visibleTracks.add(tr.id);else if(visibleTracks.size>1)visibleTracks.delete(tr.id);else{input.checked=true;return}
+onTracksChanged()
+});
+root.append(chip);
+}
+}
+function updateTrackGeometry(){
+const selected=tracks.filter(t=>visibleTracks.has(t.id));
+const rowHeight=105,top=76,base=top+rowHeight*selected.length+24;
+wrap.style.height=Math.max(270,base)+'px';
+trackRows=selected.map((tr,i)=>({...tr,py:top+i*rowHeight}));
+document.getElementById('trackHint').textContent='已选择 '+selected.length+' 条地区轨道。数字表示当前已收录的事件数量；空轨道表示尚未收录，不代表当地没有历史。';
+}
+function onTracksChanged(){renderTrackPicker();updateTrackGeometry();lastCompareKey='';resize();update()}
+document.getElementById('tracksDefault').addEventListener('click',()=>{visibleTracks=new Set(tracks.filter(t=>t.defaultVisible).map(t=>t.id));onTracksChanged()});
+document.getElementById('tracksAll').addEventListener('click',()=>{visibleTracks=new Set(tracks.map(t=>t.id));onTracksChanged()});
 const canvas=document.getElementById('timeline'),ctx=canvas.getContext('2d'),wrap=document.getElementById('wrap');let center=750,scale=.23,drag=false,lastX=0,moved=false,touches=0,pinchDist=0;
 const fmt=y=>y<=0?'前'+(1-Math.round(y))+'年':'公元 '+Math.round(y)+' 年';const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));const pos=y=>(y-center)*scale+canvas.clientWidth/2;const year=x=>center+(x-canvas.clientWidth/2)/scale;
 function resize(){const r=wrap.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(r.width*d);canvas.height=Math.round(r.height*d);ctx.setTransform(d,0,0,d,0,0);draw()}new ResizeObserver(resize).observe(wrap);
@@ -100,50 +129,44 @@ for(let y=Math.ceil(year(0)/step)*step;y<=year(w);y+=step){
 const x=pos(y);ctx.strokeStyle='#ffffff13';ctx.beginPath();ctx.moveTo(x,22);ctx.lineTo(x,h-12);ctx.stroke();
 ctx.fillStyle='#9aabb9';ctx.fillText(fmt(y),x,16);
 }
-const tracks=[{c:'cn',py:mobile?76:92,color:'#d4ae72',label:'中国历史'},{c:'world',py:mobile?216:254,color:'#80c4d9',label:'世界历史'}];
-for(const tr of tracks){
-const {c,py,color,label}=tr;
-ctx.font='600 13px sans-serif';ctx.textAlign='left';ctx.fillStyle=color;ctx.fillText(label,18,py-26);
-ctx.fillStyle='#ffffff08';ctx.fillRect(0,py,w,31);
-ctx.strokeStyle=color+'55';ctx.beginPath();ctx.moveTo(0,py+31);ctx.lineTo(w,py+31);ctx.stroke();
-const visiblePeriods=periods.filter(p=>p.c===c&&pos(p.b)>0&&pos(p.a)<w);
+for(const tr of trackRows){
+const {py,color,label,id}=tr,trackEvents=events.filter(e=>e.trackId===id);
+ctx.font='600 12px sans-serif';ctx.textAlign='left';ctx.fillStyle=color;
+ctx.fillText(label+' · '+trackEvents.length+' 事件',18,py-19);
+ctx.fillStyle='#ffffff08';ctx.fillRect(0,py,w,27);
+ctx.strokeStyle=color+'55';ctx.beginPath();ctx.moveTo(0,py+27);ctx.lineTo(w,py+27);ctx.stroke();
+const visiblePeriods=periods.filter(p=>p.trackId===id&&pos(p.b)>0&&pos(p.a)<w);
 const labelBoxes=[];
 for(const p of visiblePeriods){
-const a=pos(p.a),b=pos(p.b),left=Math.max(0,a),right=Math.min(w,b),width=right-left;
-if(width<3)continue;
-ctx.fillStyle=color+'2a';ctx.fillRect(left,py+2,width,27);
-ctx.fillStyle=color+'80';ctx.fillRect(left,py+2,2,27);
+const a=pos(p.a),b=pos(p.b),left=Math.max(0,a),right=Math.min(w,b),width=right-left;if(width<3)continue;
+ctx.fillStyle=color+'30';ctx.fillRect(left,py+2,width,23);
+ctx.fillStyle=color+'88';ctx.fillRect(left,py+2,2,23);
 if(width<55)continue;
-ctx.font='11px sans-serif';
-const tw=ctx.measureText(p.t).width;
-const tx=(left+right)/2;
+ctx.font='11px sans-serif';const tw=ctx.measureText(p.t).width,tx=(left+right)/2;
 if(tw+18>width||tx-tw/2<6||tx+tw/2>w-6)continue;
 if(labelBoxes.some(b=>tx-tw/2<b.right+8&&tx+tw/2>b.left-8))continue;
-labelBoxes.push({left:tx-tw/2,right:tx+tw/2});
-ctx.fillStyle='#e7e5dc';ctx.textAlign='center';ctx.fillText(p.t,tx,py+20);
+labelBoxes.push({left:tx-tw/2,right:tx+tw/2});ctx.fillStyle='#e7e5dc';ctx.textAlign='center';ctx.fillText(p.t,tx,py+17);
 }
-const visible=events.filter(e=>e.c===c&&pos(e.y)>-8&&pos(e.y)<w+8).sort((a,b)=>Math.abs(pos(a.y)-w/2)-Math.abs(pos(b.y)-w/2));
+const visible=trackEvents.filter(e=>pos(e.y)>-8&&pos(e.y)<w+8).sort((a,b)=>Math.abs(pos(a.y)-w/2)-Math.abs(pos(b.y)-w/2));
 const labelLanes=[[],[]];
 for(const e of visible){
 const x=pos(e.y);
-ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,py+16,3.5,0,Math.PI*2);ctx.fill();
+ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,py+14,3.5,0,Math.PI*2);ctx.fill();
 if(scale<.17)continue;
-ctx.font='10.5px sans-serif';
-const textWidth=ctx.measureText(e.t).width;
-const maxLabel=mobile?88:126;
+ctx.font='10.5px sans-serif';const textWidth=ctx.measureText(e.t).width,maxLabel=mobile?88:126;
 if(textWidth>maxLabel)continue;
 const left=x-textWidth/2-5,right=x+textWidth/2+5;
 if(left<8||right>w-8)continue;
 const lane=labelLanes.findIndex(boxes=>!boxes.some(b=>left<b.right+12&&right>b.left-12));
 if(lane<0)continue;
 labelLanes[lane].push({left,right});
-const ly=py+50+lane*22;
-ctx.strokeStyle=color+'70';ctx.beginPath();ctx.moveTo(x,py+30);ctx.lineTo(x,ly-14);ctx.stroke();
+const ly=py+43+lane*20;
+ctx.strokeStyle=color+'70';ctx.beginPath();ctx.moveTo(x,py+27);ctx.lineTo(x,ly-13);ctx.stroke();
 ctx.fillStyle='#d2dce4';ctx.textAlign='center';ctx.fillText(e.t,x,ly);
 }
 }
 ctx.strokeStyle='#f0d3a2';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(w/2,25);ctx.lineTo(w/2,h-12);ctx.stroke();
-for(const tr of tracks){ctx.fillStyle='#f0d3a2';ctx.beginPath();ctx.arc(w/2,tr.py+16,5,0,Math.PI*2);ctx.fill()}
+for(const tr of trackRows){ctx.fillStyle='#f0d3a2';ctx.beginPath();ctx.arc(w/2,tr.py+14,4.5,0,Math.PI*2);ctx.fill()}
 }
 function renderComparison(){
 const year=Math.round(center),key=year+':'+compareWindow+':'+document.getElementById('compareCategory').value;
@@ -188,7 +211,7 @@ root.append(makeColumn('中国 · 同期事件','china',cn),makeColumn('世界 �
 }
 function update(){center=clamp(center,-1600,1949);document.getElementById('date').textContent=fmt(Math.round(center));for(const c of ['cn','world']){const sorted=events.filter(e=>e.c===c).sort((a,b)=>Math.abs(a.y-center)-Math.abs(b.y-center));const e=sorted[0];if(!e)continue;document.getElementById(c==='cn'?'ctitle':'wtitle').textContent=e.t;document.getElementById(c==='cn'?'cdesc':'wdesc').textContent=fmt(e.y)+' · '+e.d}draw();renderComparison()}
 function zoom(f,x=canvas.clientWidth/2){const anchor=year(x);scale=clamp(scale*f,.065,6);center=anchor-(x-canvas.clientWidth/2)/scale;update()}
-wrap.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'&&touches>0)return;drag=true;moved=false;lastX=e.clientX;wrap.setPointerCapture(e.pointerId)});wrap.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-lastX;if(Math.abs(dx)>2)moved=true;center-=dx/scale;lastX=e.clientX;update()});wrap.addEventListener('pointerup',e=>{drag=false;if(moved)return;const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,c=y<(canvas.clientWidth<680?190:222)?'cn':'world',target=year(x);const candidates=events.filter(ev=>ev.c===c).sort((a,b)=>Math.abs(a.y-target)-Math.abs(b.y-target));if(candidates.length&&Math.abs(pos(candidates[0].y)-x)<24)show(candidates[0])});wrap.addEventListener('wheel',e=>{e.preventDefault();zoom(Math.exp(-e.deltaY*.0015),e.clientX-canvas.getBoundingClientRect().left)},{passive:false});
+wrap.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'&&touches>0)return;drag=true;moved=false;lastX=e.clientX;wrap.setPointerCapture(e.pointerId)});wrap.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-lastX;if(Math.abs(dx)>2)moved=true;center-=dx/scale;lastX=e.clientX;update()});wrap.addEventListener('pointerup',e=>{drag=false;if(moved)return;const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,target=year(x);const row=trackRows.find(tr=>y>=tr.py-9&&y<=tr.py+88);if(!row)return;const candidates=events.filter(ev=>ev.trackId===row.id).sort((a,b)=>Math.abs(a.y-target)-Math.abs(b.y-target));if(candidates.length&&Math.abs(pos(candidates[0].y)-x)<24)show(candidates[0])});wrap.addEventListener('wheel',e=>{e.preventDefault();zoom(Math.exp(-e.deltaY*.0015),e.clientX-canvas.getBoundingClientRect().left)},{passive:false});
 wrap.addEventListener('touchstart',e=>{if(e.touches.length===2){drag=false;pinchDist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY)}},{passive:true});wrap.addEventListener('touchmove',e=>{if(e.touches.length===2){e.preventDefault();let d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);if(pinchDist)zoom(d/pinchDist,((e.touches[0].clientX+e.touches[1].clientX)/2)-canvas.getBoundingClientRect().left);pinchDist=d}},{passive:false});
 function storyFor(e){return e.storyId||""}
 function show(e){document.getElementById('mtag').textContent=(e.c==='cn'?'中国历史':'世界历史')+' · '+fmt(e.y);document.getElementById('mtitle').textContent=e.t;document.getElementById('mdesc').textContent=e.d;document.getElementById('msource').innerHTML='参考资料：<a target="_blank" rel="noopener noreferrer" href="'+e.s+'">查看参考来源 ↗</a><p>注：部分事件采用约略年代定位，具体历史解释应以可靠史料为准。</p>';document.getElementById('storyAction').innerHTML=storyFor(e)?'<a class="story-link" href="./museum.html?story='+storyFor(e)+'&from='+encodeURIComponent(Math.round(center))+'">进入沉浸式专题展厅 →</a>':'';document.getElementById('storyAction').insertAdjacentHTML('beforeend','<div style="margin-top:12px"><a class="story-link" href="./atlas.html?year='+e.y+'">在历史地图中查看 →</a></div>');document.getElementById('overlay').classList.add('open')}
