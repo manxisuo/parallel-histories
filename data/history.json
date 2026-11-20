@@ -7,7 +7,8 @@
     "Map positions are modern approximate coordinates, not historically surveyed city boundaries.",
     "region and category are editorial browsing metadata; they group events geographically and thematically, and do not imply a causal relationship.",
     "trackId references data/regions.json and is a geographic/editorial track, not an ethnic or political classification. Cross-regional event tracks represent a chosen primary narrative lens.",
-    "All events and periods now expose sources[] and sourceUrl. Existing entries are marked editorial-reference pending item-by-item corroboration; new regional records cite named institutional chronologies. Approximate observation years are not precise single-day events."
+    "All events and periods now expose sources[] and sourceUrl. Existing entries are marked editorial-reference pending item-by-item corroboration; new regional records cite named institutional chronologies. Approximate observation years are not precise single-day events.",
+    "A selected year of an approximate long-running historical phenomenon is an editorial observation anchor, not its exact start date. Period bars should be used for extended developments."
   ],
   "periods": [
     {
@@ -69,10 +70,10 @@
       "civilization": "world",
       "trackId": "south-asia",
       "precision": "approximate",
-      "sourceUrl": "https://education.nationalgeographic.org/resource/mauryan-empire/",
+      "sourceUrl": "https://www.metmuseum.org/ko/essays/mauryan-empire-ca-323-185-b-c",
       "sources": [
         {
-          "url": "https://education.nationalgeographic.org/resource/mauryan-empire/",
+          "url": "https://www.metmuseum.org/ko/essays/mauryan-empire-ca-323-185-b-c",
           "kind": "institutional-chronology"
         }
       ],
@@ -137,10 +138,10 @@
       "civilization": "world",
       "trackId": "africa",
       "precision": "approximate",
-      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/06/afa.html",
+      "sourceUrl": "https://www.metmuseum.org/ja/essays/foundations-of-aksumite-civilization-and-its-christian-legacy-1st-7th-century",
       "sources": [
         {
-          "url": "https://www.metmuseum.org/de/toah/ht/06/afa.html",
+          "url": "https://www.metmuseum.org/ja/essays/foundations-of-aksumite-civilization-and-its-christian-legacy-1st-7th-century",
           "kind": "institutional-chronology"
         }
       ],
@@ -171,10 +172,10 @@
       "civilization": "world",
       "trackId": "americas",
       "precision": "approximate",
-      "sourceUrl": "https://www.metmuseum.org/ja/exhibitions/arts-of-the-ancient-americas/inside-the-exhibition",
+      "sourceUrl": "https://www.metmuseum.org/ko/essays/ancient-maya-sculpture",
       "sources": [
         {
-          "url": "https://www.metmuseum.org/ja/exhibitions/arts-of-the-ancient-americas/inside-the-exhibition",
+          "url": "https://www.metmuseum.org/ko/essays/ancient-maya-sculpture",
           "kind": "institutional-chronology"
         }
       ],
@@ -443,10 +444,10 @@
       "civilization": "world",
       "trackId": "americas",
       "precision": "approximate",
-      "sourceUrl": "https://artistproject.metmuseum.org/toah/ht/08/sanc.html",
+      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/08/sanc.html",
       "sources": [
         {
-          "url": "https://artistproject.metmuseum.org/toah/ht/08/sanc.html",
+          "url": "https://www.metmuseum.org/de/toah/ht/08/sanc.html",
           "kind": "institutional-chronology"
         }
       ],
@@ -460,10 +461,10 @@
       "civilization": "world",
       "trackId": "africa",
       "precision": "approximate",
-      "sourceUrl": "https://www.metmuseum.org/ru/toah/ht/07/afu",
+      "sourceUrl": "https://www.metmuseum.org/zh/toah/ht/08/afu",
       "sources": [
         {
-          "url": "https://www.metmuseum.org/ru/toah/ht/07/afu",
+          "url": "https://www.metmuseum.org/zh/toah/ht/08/afu",
           "kind": "institutional-chronology"
         }
       ],
@@ -597,10 +598,10 @@
       "summary": "约公元前321年，旃陀罗笈多建立孔雀王朝，随后逐步扩展统治区域；使用约略年代定位。",
       "region": "南亚 · 印度次大陆",
       "category": "政权与制度",
-      "sourceUrl": "https://education.nationalgeographic.org/resource/mauryan-empire/",
+      "sourceUrl": "https://www.metmuseum.org/ko/essays/mauryan-empire-ca-323-185-b-c",
       "sources": [
         {
-          "url": "https://education.nationalgeographic.org/resource/mauryan-empire/",
+          "url": "https://www.metmuseum.org/ko/essays/mauryan-empire-ca-323-185-b-c",
           "kind": "institutional-chronology",
           "note": "编辑摘要参考来源；未逐条进行独立档案比对"
         }
@@ -746,10 +747,10 @@
       "summary": "约公元330年前后，阿克苏姆统治者埃扎纳改宗基督教；铭文与钱币上的宗教符号反映了这一转变。",
       "region": "非洲 · 非洲之角",
       "category": "宗教与思想",
-      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/06/afa.html",
+      "sourceUrl": "https://www.metmuseum.org/zh/essays/monumental-architecture-and-stelae-of-the-aksumite-empire",
       "sources": [
         {
-          "url": "https://www.metmuseum.org/de/toah/ht/06/afa.html",
+          "url": "https://www.metmuseum.org/zh/essays/monumental-architecture-and-stelae-of-the-aksumite-empire",
           "kind": "institutional-chronology",
           "note": "编辑摘要参考来源；未逐条进行独立档案比对"
         }
@@ -788,10 +789,10 @@
       "summary": "约公元600年，玛雅地区多个相互竞争的城邦拥有复杂的书写和艺术传统；这是古典期中的示例观察年份，不是某一事件的确切日期。",
       "region": "美洲 · 中美洲玛雅地区",
       "category": "思想与文化",
-      "sourceUrl": "https://www.metmuseum.org/ja/exhibitions/arts-of-the-ancient-americas/inside-the-exhibition",
+      "sourceUrl": "https://www.metmuseum.org/ko/essays/ancient-maya-sculpture",
       "sources": [
         {
-          "url": "https://www.metmuseum.org/ja/exhibitions/arts-of-the-ancient-americas/inside-the-exhibition",
+          "url": "https://www.metmuseum.org/ko/essays/ancient-maya-sculpture",
           "kind": "institutional-chronology",
           "note": "编辑摘要参考来源；未逐条进行独立档案比对"
         }
@@ -1171,10 +1172,10 @@
       "summary": "约1438年，帕查库蒂的扩张与库斯科政治中心建设成为印加帝国形成的重要阶段。",
       "region": "美洲 · 安第斯地区",
       "category": "政权与制度",
-      "sourceUrl": "https://artistproject.metmuseum.org/toah/ht/08/sanc.html",
+      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/08/sanc.html",
       "sources": [
         {
-          "url": "https://artistproject.metmuseum.org/toah/ht/08/sanc.html",
+          "url": "https://www.metmuseum.org/de/toah/ht/08/sanc.html",
           "kind": "institutional-chronology",
           "note": "编辑摘要参考来源；未逐条进行独立档案比对"
         }
@@ -1211,10 +1212,10 @@
       "summary": "约1460年前后，马丘比丘作为印加统治者帕查库蒂相关的山地庄园和礼仪场所兴建、使用。",
       "region": "美洲 · 安第斯地区",
       "category": "思想与文化",
-      "sourceUrl": "https://artistproject.metmuseum.org/toah/ht/08/sanc.html",
+      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/08/sanc.html",
       "sources": [
         {
-          "url": "https://artistproject.metmuseum.org/toah/ht/08/sanc.html",
+          "url": "https://www.metmuseum.org/de/toah/ht/08/sanc.html",
           "kind": "institutional-chronology",
           "note": "编辑摘要参考来源；未逐条进行独立档案比对"
         }
@@ -1231,10 +1232,10 @@
       "summary": "1468年，桑海统治者桑尼·阿里夺取廷巴克图，西非内陆政治与商贸格局继续变化。",
       "region": "非洲 · 西非",
       "category": "政权与制度",
-      "sourceUrl": "https://www.metmuseum.org/ru/toah/ht/07/afu",
+      "sourceUrl": "https://www.metmuseum.org/zh/toah/ht/08/afu",
       "sources": [
         {
-          "url": "https://www.metmuseum.org/ru/toah/ht/07/afu",
+          "url": "https://www.metmuseum.org/zh/toah/ht/08/afu",
           "kind": "institutional-chronology",
           "note": "编辑摘要参考来源；未逐条进行独立档案比对"
         }
