@@ -56,9 +56,9 @@ document.getElementById('cityExpand').onclick=openCityLightbox;
 document.getElementById('cityClose').onclick=closeCityLightbox;
 document.getElementById('cityLightbox').addEventListener('click',e=>{if(e.target.id==='cityLightbox')closeCityLightbox()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!document.getElementById('cityLightbox').hidden)closeCityLightbox()});
-let cinemaTimer=0,cinemaIndex=0,cinemaPlaying=false,cinemaReturnFocus=null,cinemaActiveLayer=0,cinemaImageToken=0,motionFrame=0,motionLast=0,motionScene="",motionParticles=[];
+let cinemaTimer=0,cinemaLoadTimer=0,cinemaIndex=0,cinemaPlaying=false,cinemaReturnFocus=null,cinemaActiveLayer=0,cinemaImageToken=0,motionFrame=0,motionLast=0,motionScene="",motionParticles=[];
 const cinemaEl=document.getElementById('cinema');
-function cinemaStopTimer(){clearTimeout(cinemaTimer);cinemaTimer=0}
+function cinemaStopTimer(){clearTimeout(cinemaTimer);clearTimeout(cinemaLoadTimer);cinemaTimer=0;cinemaLoadTimer=0}
 const motionCanvas=document.getElementById('cinemaMotion'),motionCtx=motionCanvas.getContext('2d');
 function stopSceneMotion(){if(motionFrame)cancelAnimationFrame(motionFrame);motionFrame=0;motionLast=0;motionParticles=[];motionCtx.clearRect(0,0,motionCanvas.width,motionCanvas.height)}
 function startSceneMotion(scene){
@@ -152,13 +152,23 @@ startSceneMotion(city?.scene||'tang');
 const visual=document.getElementById('cinemaVisual');
 visual.style.background='linear-gradient(135deg,#23475a,#a57954 70%,#172e3d)';
 const layers=[document.getElementById('cinemaImageA'),document.getElementById('cinemaImageB')],nextLayer=1-cinemaActiveLayer,img=layers[nextLayer],token=++cinemaImageToken;
-layers[cinemaActiveLayer].classList.add('active');img.classList.remove('active');
-const reveal=()=>{if(token!==cinemaImageToken)return;img.classList.add('active');layers[cinemaActiveLayer].classList.remove('active');cinemaActiveLayer=nextLayer};
-if(city?.image){const url=new URL(city.image,document.baseURI).href;img.onload=()=>reveal();img.onerror=()=>{if(token===cinemaImageToken){img.removeAttribute('src');reveal()}};img.alt=city.imageAlt||chapter.title;img.src=url;if(img.complete&&img.naturalWidth)reveal()}else{img.removeAttribute('src');reveal()}
+layers.forEach(layer=>layer.classList.remove('active'));
+const reveal=()=>{if(token!==cinemaImageToken)return;img.classList.add('active');cinemaActiveLayer=nextLayer;cinemaSyncControls();cinemaSchedule()};
+const showFallback=()=>{if(token!==cinemaImageToken)return;visual.style.background='radial-gradient(circle at 70% 35%,#8c684b 0%,#243b49 42%,#081521 100%)';reveal()};
+cinemaStopTimer();
+if(city?.image){
+ const url=new URL(city.image,document.baseURI).href;
+ img.onload=()=>{if(token===cinemaImageToken){visual.style.background='#081521';reveal()}};
+ img.onerror=showFallback;
+ img.alt=city.imageAlt||chapter.title;img.loading='eager';img.decoding='async';img.src=url;
+ if(img.complete&&img.naturalWidth>0){visual.style.background='#081521';reveal()}
+ // Never advance past a chapter while its artwork is still loading.
+ cinemaLoadTimer=setTimeout(showFallback,7000);
+}else{img.removeAttribute('src');showFallback()}
 const placeIndex=cinemaIndex,transit=document.getElementById('cinemaTransit');document.getElementById('cinemaTransitLabel').textContent=place.region+'  /  '+place.name;transit.classList.remove('show');void transit.offsetWidth;transit.classList.add('show');
 const copy=document.querySelector('.cinema-copy');copy.style.animation='none';void copy.offsetWidth;copy.style.animation='';
 const progress=document.getElementById('cinemaProgress');progress.replaceChildren();for(let i=0;i<n.chapters.length;i++){const item=document.createElement('i');item.className=i<=cinemaIndex?'active':'';const stop=document.createElement('span');stop.textContent=places.find(p=>p.id===n.chapters[i].placeId)?.name||String(i+1);item.append(stop);progress.append(item)}
-cinemaSyncControls();cinemaSchedule();
+cinemaSyncControls();
 }
 function cinemaOpen(){
 const n=currentNetwork();if(!n?.chapters?.length||!routeOn)return;
