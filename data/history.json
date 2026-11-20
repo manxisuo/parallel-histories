@@ -1,11 +1,12 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "yearConvention": "astronomical",
   "notes": [
     "Astronomical year 0 corresponds to 1 BCE. Display dates must convert negative/zero years to BCE without a year zero.",
     "Years, locations, and historic period boundaries can be approximate or disputed; this dataset is an editorial prototype.",
     "Map positions are modern approximate coordinates, not historically surveyed city boundaries.",
-    "region and category are editorial browsing metadata; they group events geographically and thematically, and do not imply a causal relationship."
+    "region and category are editorial browsing metadata; they group events geographically and thematically, and do not imply a causal relationship.",
+    "trackId references data/regions.json and is a geographic/editorial track, not an ethnic or political classification. Cross-regional event tracks represent a chosen primary narrative lens."
   ],
   "periods": [
     {
@@ -14,7 +15,8 @@
       "endYear": -1046,
       "name": "商",
       "civilization": "cn",
-      "precision": "approximate"
+      "precision": "approximate",
+      "trackId": "china"
     },
     {
       "id": "zhou",
@@ -22,7 +24,8 @@
       "endYear": -256,
       "name": "周",
       "civilization": "cn",
-      "precision": "approximate"
+      "precision": "approximate",
+      "trackId": "china"
     },
     {
       "id": "qin",
@@ -30,7 +33,8 @@
       "endYear": -206,
       "name": "秦",
       "civilization": "cn",
-      "precision": "year"
+      "precision": "year",
+      "trackId": "china"
     },
     {
       "id": "han",
@@ -38,7 +42,8 @@
       "endYear": 220,
       "name": "汉",
       "civilization": "cn",
-      "precision": "year"
+      "precision": "year",
+      "trackId": "china"
     },
     {
       "id": "division",
@@ -46,7 +51,8 @@
       "endYear": 589,
       "name": "魏晋南北朝",
       "civilization": "cn",
-      "precision": "approximate"
+      "precision": "approximate",
+      "trackId": "china"
     },
     {
       "id": "sui",
@@ -54,7 +60,8 @@
       "endYear": 618,
       "name": "隋",
       "civilization": "cn",
-      "precision": "year"
+      "precision": "year",
+      "trackId": "china"
     },
     {
       "id": "tang",
@@ -62,7 +69,8 @@
       "endYear": 907,
       "name": "唐",
       "civilization": "cn",
-      "precision": "year"
+      "precision": "year",
+      "trackId": "china"
     },
     {
       "id": "song",
@@ -70,7 +78,8 @@
       "endYear": 1279,
       "name": "宋",
       "civilization": "cn",
-      "precision": "year"
+      "precision": "year",
+      "trackId": "china"
     },
     {
       "id": "yuan",
@@ -78,7 +87,8 @@
       "endYear": 1368,
       "name": "元",
       "civilization": "cn",
-      "precision": "year"
+      "precision": "year",
+      "trackId": "china"
     },
     {
       "id": "ming",
@@ -86,7 +96,8 @@
       "endYear": 1644,
       "name": "明",
       "civilization": "cn",
-      "precision": "year"
+      "precision": "year",
+      "trackId": "china"
     },
     {
       "id": "qing",
@@ -94,7 +105,8 @@
       "endYear": 1912,
       "name": "清",
       "civilization": "cn",
-      "precision": "year"
+      "precision": "year",
+      "trackId": "china"
     },
     {
       "id": "roman-republic",
@@ -102,7 +114,8 @@
       "endYear": -27,
       "name": "罗马共和国",
       "civilization": "world",
-      "precision": "traditional"
+      "precision": "traditional",
+      "trackId": "europe"
     },
     {
       "id": "western-rome",
@@ -110,7 +123,8 @@
       "endYear": 476,
       "name": "罗马帝国（西部）",
       "civilization": "world",
-      "precision": "approximate"
+      "precision": "approximate",
+      "trackId": "europe"
     },
     {
       "id": "abbasid",
@@ -118,7 +132,8 @@
       "endYear": 1258,
       "name": "阿拔斯王朝",
       "civilization": "world",
-      "precision": "year"
+      "precision": "year",
+      "trackId": "west-asia"
     },
     {
       "id": "mongol",
@@ -126,7 +141,8 @@
       "endYear": 1368,
       "name": "蒙古帝国时期",
       "civilization": "world",
-      "precision": "approximate"
+      "precision": "approximate",
+      "trackId": "east-asia"
     },
     {
       "id": "renaissance",
@@ -134,7 +150,8 @@
       "endYear": 1600,
       "name": "欧洲文艺复兴",
       "civilization": "world",
-      "precision": "approximate"
+      "precision": "approximate",
+      "trackId": "europe"
     },
     {
       "id": "industrial",
@@ -142,7 +159,8 @@
       "endYear": 1840,
       "name": "工业革命早期",
       "civilization": "world",
-      "precision": "approximate"
+      "precision": "approximate",
+      "trackId": "europe"
     }
   ],
   "events": [
@@ -158,7 +176,8 @@
       "summary": "周灭商，西周建立。常见传统纪年为公元前1046年；天文纪年换算后约为-1045。",
       "sourceUrl": "https://www.britannica.com/topic/Zhou-dynasty",
       "region": "东亚 · 中国",
-      "category": "政权与制度"
+      "category": "政权与制度",
+      "trackId": "china"
     },
     {
       "id": "confucius",
@@ -170,7 +189,8 @@
       "summary": "传统纪年认为孔子生于公元前551年。",
       "sourceUrl": "https://www.britannica.com/biography/Confucius",
       "region": "东亚 · 中国",
-      "category": "思想与文化"
+      "category": "思想与文化",
+      "trackId": "china"
     },
     {
       "id": "roman-republic",
@@ -184,7 +204,8 @@
       "summary": "罗马共和国传统建国年代为公元前509年。",
       "sourceUrl": "https://www.britannica.com/place/Roman-Republic",
       "region": "欧洲 · 地中海",
-      "category": "政权与制度"
+      "category": "政权与制度",
+      "trackId": "europe"
     },
     {
       "id": "qin-unification",
@@ -199,7 +220,8 @@
       "sourceUrl": "https://www.britannica.com/place/Qin-dynasty",
       "storyId": "qin",
       "region": "东亚 · 中国",
-      "category": "政权与制度"
+      "category": "政权与制度",
+      "trackId": "china"
     },
     {
       "id": "han-foundation",
@@ -213,7 +235,8 @@
       "summary": "公元前202年刘邦建立汉朝。",
       "sourceUrl": "https://www.britannica.com/topic/Han-dynasty",
       "region": "东亚 · 中国",
-      "category": "政权与制度"
+      "category": "政权与制度",
+      "trackId": "china"
     },
     {
       "id": "augustus",
@@ -227,7 +250,8 @@
       "summary": "公元前27年屋大维获奥古斯都称号，罗马进入元首制。",
       "sourceUrl": "https://www.britannica.com/place/Roman-Empire",
       "region": "欧洲 · 地中海",
-      "category": "政权与制度"
+      "category": "政权与制度",
+      "trackId": "europe"
     },
     {
       "id": "eastern-han-end",
@@ -241,7 +265,8 @@
       "summary": "汉献帝禅让，曹魏建立。",
       "sourceUrl": "https://www.britannica.com/topic/Han-dynasty",
       "region": "东亚 · 中国",
-      "category": "政权与制度"
+      "category": "政权与制度",
+      "trackId": "china"
     },
     {
       "id": "western-rome-end",
@@ -255,7 +280,8 @@
       "summary": "476年常作为西罗马帝国终结的传统标志。",
       "sourceUrl": "https://www.britannica.com/place/Roman-Empire",
       "region": "欧洲 · 地中海",
-      "category": "政权与制度"
+      "category": "政权与制度",
+      "trackId": "europe"
     },
     {
       "id": "tang-foundation",
@@ -270,7 +296,8 @@
       "sourceUrl": "https://www.britannica.com/topic/Tang-dynasty",
       "storyId": "tang",
       "region": "东亚 · 中国",
-      "category": "政权与制度"
+      "category": "政权与制度",
+      "trackId": "china"
     },
     {
       "id": "hijrah",
@@ -282,7 +309,8 @@
       "summary": "穆罕默德迁往麦地那的事件成为伊斯兰历纪元起点。",
       "sourceUrl": "https://www.britannica.com/event/Hijrah-Islam",
       "region": "西亚 · 阿拉伯半岛",
-      "category": "宗教与思想"
+      "category": "宗教与思想",
+      "trackId": "west-asia"
     },
     {
       "id": "abbasid-foundation",
@@ -297,7 +325,8 @@
       "sourceUrl": "https://www.britannica.com/topic/Abbasid-caliphate",
       "storyId": "tang",
       "region": "西亚 · 两河流域",
-      "category": "政权与制度"
+      "category": "政权与制度",
+      "trackId": "west-asia"
     },
     {
       "id": "talas-battle",
@@ -312,7 +341,8 @@
       "sourceUrl": "https://www.britannica.com/topic/Tang-dynasty",
       "storyId": "tang",
       "region": "中亚",
-      "category": "战争与冲突"
+      "category": "战争与冲突",
+      "trackId": "central-asia"
     },
     {
       "id": "anshi",
@@ -327,7 +357,8 @@
       "sourceUrl": "https://www.britannica.com/topic/Tang-dynasty",
       "storyId": "tang",
       "region": "东亚 · 中国",
-      "category": "战争与冲突"
+      "category": "战争与冲突",
+      "trackId": "china"
     },
     {
       "id": "song-foundation",
@@ -341,7 +372,8 @@
       "summary": "赵匡胤建立宋朝，定都开封。",
       "sourceUrl": "https://www.britannica.com/topic/Song-dynasty",
       "region": "东亚 · 中国",
-      "category": "政权与制度"
+      "category": "政权与制度",
+      "trackId": "china"
     },
     {
       "id": "movable-type",
@@ -355,7 +387,8 @@
       "summary": "毕昇在北宋庆历年间（1041—1048）发明泥活字印刷术，此处用1045年近似定位。",
       "sourceUrl": "https://www.britannica.com/technology/printing-publishing",
       "region": "东亚 · 中国",
-      "category": "科技与知识"
+      "category": "科技与知识",
+      "trackId": "china"
     },
     {
       "id": "mongol-foundation",
@@ -367,7 +400,8 @@
       "summary": "铁木真被推举为成吉思汗，蒙古帝国开始形成。",
       "sourceUrl": "https://www.britannica.com/place/Mongol-empire",
       "region": "东亚 · 蒙古高原",
-      "category": "政权与制度"
+      "category": "政权与制度",
+      "trackId": "east-asia"
     },
     {
       "id": "yuan-name",
@@ -379,7 +413,8 @@
       "summary": "忽必烈定国号为大元。",
       "sourceUrl": "https://www.britannica.com/topic/Yuan-dynasty",
       "region": "东亚 · 中国",
-      "category": "政权与制度"
+      "category": "政权与制度",
+      "trackId": "china"
     },
     {
       "id": "ming-foundation",
@@ -393,7 +428,8 @@
       "summary": "朱元璋建立明朝。",
       "sourceUrl": "https://www.britannica.com/topic/Ming-dynasty",
       "region": "东亚 · 中国",
-      "category": "政权与制度"
+      "category": "政权与制度",
+      "trackId": "china"
     },
     {
       "id": "zhenghe-voyage",
@@ -410,7 +446,8 @@
       "sourceUrl": "https://www.britannica.com/biography/Zheng-He",
       "storyId": "ocean",
       "region": "东亚 · 中国 / 印度洋",
-      "category": "航海与交流"
+      "category": "航海与交流",
+      "trackId": "china"
     },
     {
       "id": "gutenberg",
@@ -422,7 +459,8 @@
       "summary": "15世纪中叶古腾堡在欧洲发展金属活字印刷系统。",
       "sourceUrl": "https://www.britannica.com/biography/Johannes-Gutenberg",
       "region": "欧洲 · 德意志地区",
-      "category": "科技与知识"
+      "category": "科技与知识",
+      "trackId": "europe"
     },
     {
       "id": "columbus",
@@ -434,7 +472,8 @@
       "summary": "哥伦布航行抵达加勒比地区，美洲原住民文明此前已长期存在。",
       "sourceUrl": "https://www.britannica.com/biography/Christopher-Columbus",
       "region": "美洲 · 加勒比地区",
-      "category": "航海与交流"
+      "category": "航海与交流",
+      "trackId": "americas"
     },
     {
       "id": "qing-entry",
@@ -446,7 +485,8 @@
       "summary": "清军入关并进入北京，清朝于1636年建立。",
       "sourceUrl": "https://www.britannica.com/topic/Qing-dynasty",
       "region": "东亚 · 中国",
-      "category": "战争与冲突"
+      "category": "战争与冲突",
+      "trackId": "china"
     },
     {
       "id": "declaration",
@@ -460,7 +500,8 @@
       "summary": "北美十三殖民地通过独立宣言。",
       "sourceUrl": "https://www.archives.gov/founding-docs/declaration-transcript",
       "region": "北美 · 北美洲",
-      "category": "政治与制度"
+      "category": "政治与制度",
+      "trackId": "americas"
     },
     {
       "id": "french-revolution",
@@ -474,7 +515,8 @@
       "summary": "法国大革命爆发。",
       "sourceUrl": "https://www.britannica.com/event/French-Revolution",
       "region": "欧洲 · 法国",
-      "category": "战争与冲突"
+      "category": "战争与冲突",
+      "trackId": "europe"
     },
     {
       "id": "opium-war",
@@ -486,7 +528,8 @@
       "summary": "中英鸦片战争爆发。",
       "sourceUrl": "https://www.britannica.com/event/Opium-Wars",
       "region": "东亚 · 中国",
-      "category": "战争与冲突"
+      "category": "战争与冲突",
+      "trackId": "china"
     },
     {
       "id": "xinhai",
@@ -498,7 +541,8 @@
       "summary": "辛亥革命推动中国由帝制转向共和。",
       "sourceUrl": "https://www.britannica.com/event/Chinese-Revolution-1911-1912",
       "region": "东亚 · 中国",
-      "category": "政治与制度"
+      "category": "政治与制度",
+      "trackId": "china"
     },
     {
       "id": "ww1",
@@ -510,7 +554,8 @@
       "summary": "第一次世界大战爆发。",
       "sourceUrl": "https://www.britannica.com/event/World-War-I",
       "region": "全球 · 欧洲及其他地区",
-      "category": "战争与冲突"
+      "category": "战争与冲突",
+      "trackId": "global"
     },
     {
       "id": "ww2-end",
@@ -522,7 +567,8 @@
       "summary": "第二次世界大战结束。",
       "sourceUrl": "https://www.britannica.com/event/World-War-II",
       "region": "全球 · 多个战区",
-      "category": "战争与冲突"
+      "category": "战争与冲突",
+      "trackId": "global"
     },
     {
       "id": "prc-foundation",
@@ -534,7 +580,8 @@
       "summary": "1949年10月1日中华人民共和国成立。",
       "sourceUrl": "https://www.britannica.com/place/China",
       "region": "东亚 · 中国",
-      "category": "政治与制度"
+      "category": "政治与制度",
+      "trackId": "china"
     }
   ]
 }
