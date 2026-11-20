@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "disclaimer": "场景均为风格化概念插画，不是历史建筑的考古复原图。现代近似坐标仅用于地理定位。",
+  "cities": [
+    {
+      "id": "changan",
+      "english": "CHANG'AN",
+      "era": "唐代 · 公元8世纪",
+      "tag": "城市艺术想象",
+      "scene": "tang",
+      "title": "坊市之间，万方辐辏",
+      "description": "长安是唐代的重要都城。画面以城门、屋檐与街市轮廓表达古都氛围；具体建筑形制与街景并非780年的精确复原。",
+      "fact": "唐长安具有规划鲜明的都城格局，坊市制度对城市生活有重要影响。",
+      "uncertainty": "插画是概念性视觉表达，不对应某座现存建筑。",
+      "sources": [
+        "https://www.britannica.com/place/Xian-China"
+      ]
+    },
+    {
+      "id": "samarkand",
+      "english": "SAMARKAND",
+      "era": "中亚 · 公元8世纪",
+      "tag": "城市艺术想象",
+      "scene": "oasis",
+      "title": "绿洲之城，文明交汇",
+      "description": "以夯土城墙、商旅和绿洲色彩表现中亚历史城市的交流氛围。图中建筑并非特定年代的实景复原。",
+      "fact": "撒马尔罕长期是中亚重要城市，也是欧亚贸易和文化交流网络的节点。",
+      "uncertainty": "避免将后世帖木儿时期的蓝色穹顶建筑直接当作8世纪景观。",
+      "sources": [
+        "https://www.britannica.com/place/Samarkand-Uzbekistan"
+      ]
+    },
+    {
+      "id": "baghdad",
+      "english": "BAGHDAD",
+      "era": "阿拔斯王朝 · 公元8世纪后期",
+      "tag": "参考历史布局的概念插画",
+      "scene": "round",
+      "title": "圆城初兴，知识汇流",
+      "description": "以同心城墙与中心建筑群的抽象意象，提示阿拔斯早期巴格达圆城的城市构想，而非精确复原。",
+      "fact": "巴格达于762年开始营建，后来成为阿拔斯王朝的重要中心。",
+      "uncertainty": "750年不应出现这座新都；圆城细部复原仍有史料与考古限制。",
+      "sources": [
+        "https://www.britannica.com/place/Baghdad"
+      ]
+    },
+    {
+      "id": "malacca",
+      "english": "MALACCA",
+      "era": "马六甲海峡 · 15世纪",
+      "tag": "港口艺术想象",
+      "scene": "harbor",
+      "title": "季风与帆影之间",
+      "description": "热带海湾、商船与港口的剪影表现15世纪海上交流环境。船型、建筑和港口位置不对应某一确切历史瞬间。",
+      "fact": "马六甲海峡是连接南海与印度洋的重要通道，15世纪马六甲成为区域贸易枢纽。",
+      "uncertainty": "插画不是郑和船队特定年份抵港的纪实画面。",
+      "sources": [
+        "https://www.britannica.com/place/Malacca-Malaysia"
+      ]
+    }
+  ]
+}
