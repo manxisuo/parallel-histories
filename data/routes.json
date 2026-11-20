@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "disclaimer": "下列连线仅表示跨区域交流网络的概念性联系，不是单一商队的确证路线、道路测绘轨迹或某一年全部可通行的路线。各节点所处政治环境随时间变化。",
+  "networks": [
+    {
+      "id": "silk-road",
+      "title": "欧亚陆路交流网络",
+      "startYear": 650,
+      "endYear": 900,
+      "focusYear": 780,
+      "subtitle": "唐代、中亚与阿拔斯时代的交流空间",
+      "description": "欧亚陆路交流并非一条固定道路，而是由多个城市、绿洲和商旅通道组成的网络。这里用城市间的概念性连接帮助理解空间关系，不声称这些连线是某次历史旅行的实际路径。",
+      "sourceUrls": [
+        "https://www.unesco.org/en/silk-roads",
+        "https://www.britannica.com/topic/Silk-Road-trade-route"
+      ],
+      "nodes": [
+        {
+          "placeId": "changan",
+          "note": "唐代重要都城和国际性都市"
+        },
+        {
+          "placeId": "samarkand",
+          "note": "中亚贸易与文化交流中心"
+        },
+        {
+          "placeId": "baghdad",
+          "note": "762年起营建；780年时为阿拔斯王朝都城"
+        }
+      ],
+      "links": [
+        {
+          "from": "changan",
+          "to": "samarkand",
+          "type": "conceptual"
+        },
+        {
+          "from": "samarkand",
+          "to": "baghdad",
+          "type": "conceptual"
+        }
+      ],
+      "caution": "路线仅是跨区域联系示意；尤其在公元750年，巴格达尚未营建，不能把它标为当时的阿拔斯都城。"
+    }
+  ]
+}
