@@ -41,6 +41,46 @@
         }
       ],
       "caution": "路线仅是跨区域联系示意；尤其在公元750年，巴格达尚未营建，不能把它标为当时的阿拔斯都城。"
+    },
+    {
+      "id": "zheng-he",
+      "title": "郑和远航与印度洋交流网络",
+      "startYear": 1405,
+      "endYear": 1433,
+      "focusYear": 1405,
+      "subtitle": "明代远航、马六甲与印度洋港口",
+      "description": "1405—1433年间，郑和率领船队多次远航，连接中国沿海、东南亚和印度洋港口。图中的节点代表与航海交流相关的重要地区，连线仅用于帮助理解跨海联系，不表示某一次航行的准确航线或每段航程的先后顺序。",
+      "sourceUrls": [
+        "https://www.britannica.com/biography/Zheng-He",
+        "https://www.britannica.com/place/Malacca-Malaysia"
+      ],
+      "nodes": [
+        {
+          "placeId": "nanjing",
+          "note": "明朝初期的政治中心，郑和航海事业的重要背景城市；并非每次船队出海的实际起航港"
+        },
+        {
+          "placeId": "malacca",
+          "note": "马六甲海峡重要港口和海上交通枢纽"
+        },
+        {
+          "placeId": "calicut",
+          "note": "印度西南海岸的重要贸易港口，郑和船队曾到访"
+        }
+      ],
+      "links": [
+        {
+          "from": "nanjing",
+          "to": "malacca",
+          "type": "conceptual"
+        },
+        {
+          "from": "malacca",
+          "to": "calicut",
+          "type": "conceptual"
+        }
+      ],
+      "caution": "概念连线不代表实测航迹；南京至马六甲的直线并非真实海路，历史航行通常涉及沿海港口和中转停靠。不同次航行的到访地点及年代须分别考证。"
     }
   ]
 }
