@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "disclaimer": "场景均为风格化概念插画，不是历史建筑的考古复原图。现代近似坐标仅用于地理定位。",
+  "disclaimer": "本专题图片由生成式 AI 创作，是艺术化想象，并非历史建筑、服饰、船型的考古复原。画面中的部分细节可能存在年代混用。",
   "cities": [
     {
       "id": "changan",
       "english": "CHANG'AN",
       "era": "唐代 · 公元8世纪",
-      "tag": "城市艺术想象",
+      "tag": "AI 生成艺术想象 · 非历史实景",
       "scene": "tang",
       "title": "坊市之间，万方辐辏",
       "description": "长安是唐代的重要都城。画面以城门、屋檐与街市轮廓表达古都氛围；具体建筑形制与街景并非780年的精确复原。",
@@ -14,13 +14,15 @@
       "uncertainty": "插画是概念性视觉表达，不对应某座现存建筑。",
       "sources": [
         "https://www.britannica.com/place/Xian-China"
-      ]
+      ],
+      "image": "./assets/cities/changan.webp",
+      "imageAlt": "CHANG'AN · 历史城市艺术想象画面（非考古复原）"
     },
     {
       "id": "samarkand",
       "english": "SAMARKAND",
       "era": "中亚 · 公元8世纪",
-      "tag": "城市艺术想象",
+      "tag": "AI 生成艺术想象 · 非历史实景",
       "scene": "oasis",
       "title": "绿洲之城，文明交汇",
       "description": "以夯土城墙、商旅和绿洲色彩表现中亚历史城市的交流氛围。图中建筑并非特定年代的实景复原。",
@@ -28,13 +30,15 @@
       "uncertainty": "避免将后世帖木儿时期的蓝色穹顶建筑直接当作8世纪景观。",
       "sources": [
         "https://www.britannica.com/place/Samarkand-Uzbekistan"
-      ]
+      ],
+      "image": "./assets/cities/samarkand.webp",
+      "imageAlt": "SAMARKAND · 历史城市艺术想象画面（非考古复原）"
     },
     {
       "id": "baghdad",
       "english": "BAGHDAD",
       "era": "阿拔斯王朝 · 公元8世纪后期",
-      "tag": "参考历史布局的概念插画",
+      "tag": "AI 生成艺术想象 · 非历史实景",
       "scene": "round",
       "title": "圆城初兴，知识汇流",
       "description": "以同心城墙与中心建筑群的抽象意象，提示阿拔斯早期巴格达圆城的城市构想，而非精确复原。",
@@ -42,13 +46,15 @@
       "uncertainty": "750年不应出现这座新都；圆城细部复原仍有史料与考古限制。",
       "sources": [
         "https://www.britannica.com/place/Baghdad"
-      ]
+      ],
+      "image": "./assets/cities/baghdad.webp",
+      "imageAlt": "BAGHDAD · 历史城市艺术想象画面（非考古复原）"
     },
     {
       "id": "malacca",
       "english": "MALACCA",
       "era": "马六甲海峡 · 15世纪",
-      "tag": "港口艺术想象",
+      "tag": "AI 生成艺术想象 · 非历史实景",
       "scene": "harbor",
       "title": "季风与帆影之间",
       "description": "热带海湾、商船与港口的剪影表现15世纪海上交流环境。船型、建筑和港口位置不对应某一确切历史瞬间。",
@@ -56,7 +62,9 @@
       "uncertainty": "插画不是郑和船队特定年份抵港的纪实画面。",
       "sources": [
         "https://www.britannica.com/place/Malacca-Malaysia"
-      ]
+      ],
+      "image": "./assets/cities/malacca.webp",
+      "imageAlt": "MALACCA · 历史城市艺术想象画面（非考古复原）"
     }
   ]
 }
