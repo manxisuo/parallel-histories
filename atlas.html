@@ -38,7 +38,7 @@ function updateRouteUI(){
 const n=currentNetwork(),eligible=n&&year>=n.startYear&&year<=n.endYear;
 const toggle=document.getElementById('routeToggle'),play=document.getElementById('routePlay');
 toggle.setAttribute('aria-pressed',String(routeOn));toggle.textContent=routeOn?'关闭 · 欧亚交流网络':'开启 · 欧亚交流网络';
-play.disabled=!routeOn||!eligible;document.getElementById('routePanel').hidden=!routeOn;
+play.disabled=!routeOn||!eligible;play.textContent=routeAnimating?'重新播放动画':'播放交流动画';document.getElementById('routePanel').hidden=!routeOn;
 document.getElementById('routeStatus').textContent=eligible?'约 '+fmt(year)+' · 可查看交流网络':'请将年份调整至公元 650—900 年';
 if(n&&routeOn){
 document.getElementById('routeTitle').textContent=n.title;
@@ -50,8 +50,8 @@ for(const url of n.sourceUrls){const a=document.createElement('a');a.href=url;a.
 }
 function playRoute(){
 if(!networkVisible())return;
-cancelAnimationFrame(routeFrame);routeAnimating=true;routeProgress=0;routeStart=performance.now();
-function tick(now){if(!routeAnimating)return;routeProgress=Math.min(1,(now-routeStart)/5000);requestDraw();if(routeProgress<1)routeFrame=requestAnimationFrame(tick);else routeAnimating=false}
+cancelAnimationFrame(routeFrame);routeAnimating=true;routeProgress=0;routeStart=performance.now();updateRouteUI();
+function tick(now){if(!routeAnimating)return;routeProgress=Math.min(1,(now-routeStart)/5000);requestDraw();if(routeProgress<1)routeFrame=requestAnimationFrame(tick);else {routeAnimating=false;updateRouteUI()}}
 routeFrame=requestAnimationFrame(tick);
 }
 
@@ -112,7 +112,7 @@ function zoomAt(f,x=canvas.clientWidth/2,y=canvas.clientHeight/2){const p=unproj
 canvas.addEventListener('wheel',e=>{e.preventDefault();const r=canvas.getBoundingClientRect();zoomAt(Math.exp(-e.deltaY*.001),e.clientX-r.left,e.clientY-r.top)},{passive:false});
 canvas.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'&&e.isPrimary===false)return;drag=true;moved=false;lastX=e.clientX;lastY=e.clientY;canvas.setPointerCapture(e.pointerId)});
 canvas.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-lastX,dy=e.clientY-lastY;if(Math.abs(dx)+Math.abs(dy)>2)moved=true;offsetX+=dx;offsetY+=dy;lastX=e.clientX;lastY=e.clientY;requestDraw();scheduleRefine()});
-canvas.addEventListener('pointerup',e=>{drag=false;scheduleRefine();if(moved)return;const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;let p=activePlaces().map(p=>({p,q:project(p)})).sort((a,b)=>Math.hypot(a.q.x-x,a.q.y-y)-Math.hypot(b.q.x-x,b.q.y-y))[0];if(p&&Math.hypot(p.q.x-x,p.q.y-y)<25){document.getElementById('placeTitle').textContent=p.p.name;document.getElementById('placeDesc').textContent=p.p.description+'（'+p.p.lat.toFixed(3)+'°, '+p.p.lon.toFixed(3)+'°）';document.querySelector('.detail').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'nearest'})}});
+canvas.addEventListener('pointerup',e=>{drag=false;scheduleRefine();if(moved)return;const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;let p=activePlaces().map(p=>({p,q:project(p)})).sort((a,b)=>Math.hypot(a.q.x-x,a.q.y-y)-Math.hypot(b.q.x-x,b.q.y-y))[0];if(p&&Math.hypot(p.q.x-x,p.q.y-y)<25){document.getElementById('placeTitle').textContent=p.p.name;const node=networkVisible()?currentNetwork().nodes.find(n=>n.placeId===p.p.id):null;const associated=events.filter(e=>e.placeIds?.includes(p.p.id)&&Math.abs(e.year-year)<=60).slice(0,3);document.getElementById('placeDesc').textContent=p.p.description+(node?' · 交流网络角色：'+node.note:'')+(associated.length?' · 附近历史事件：'+associated.map(e=>fmt(e.year)+' '+e.title).join('；'):'')+'（现代近似坐标 '+p.p.lat.toFixed(3)+'°, '+p.p.lon.toFixed(3)+'°）';document.querySelector('.detail').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'nearest'})}});
 canvas.addEventListener('touchstart',e=>{if(e.touches.length===2){drag=false;pinch=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY)}},{passive:true});
 canvas.addEventListener('touchmove',e=>{if(e.touches.length===2){e.preventDefault();const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);if(pinch)zoomAt(d/pinch,(e.touches[0].clientX+e.touches[1].clientX)/2-canvas.getBoundingClientRect().left,(e.touches[0].clientY+e.touches[1].clientY)/2-canvas.getBoundingClientRect().top);pinch=d}},{passive:false});
 document.getElementById('routeToggle').onclick=()=>{routeOn=!routeOn;routeAnimating=false;cancelAnimationFrame(routeFrame);if(routeOn&&(!networkVisible())){slider.value=currentNetwork()?.focusYear||780;year=Number(slider.value)}update()};document.getElementById('routePlay').onclick=playRoute;slider.oninput=()=>{routeAnimating=false;cancelAnimationFrame(routeFrame);update()};document.getElementById('era').onchange=e=>{slider.value=e.target.value;update()};document.getElementById('plus').onclick=()=>zoomAt(1.4);document.getElementById('minus').onclick=()=>zoomAt(1/1.4);document.getElementById('reset').onclick=()=>{zoom=1;offsetX=0;offsetY=0;requestDraw();scheduleRefine()};
