@@ -29,6 +29,8 @@ for(const n of routes.networks){
  const nodes=new Set();
  for(const node of n.nodes){if(!placeIds.has(node.placeId))errors.push('Unknown route place: '+node.placeId);nodes.add(node.placeId)}
  for(const link of n.links)if(!nodes.has(link.from)||!nodes.has(link.to))errors.push('Invalid network link: '+n.id);
+ if(!Array.isArray(n.chapters)||n.chapters.length<2)errors.push('Missing chapters: '+n.id);
+ for(const chapter of n.chapters||[])if(!nodes.has(chapter.placeId)||!chapter.title||!chapter.body||!chapter.yearNote)errors.push('Invalid chapter in '+n.id);
 }
 if(errors.length){console.error(errors.join('\n'));process.exitCode=1}
 else console.log('Validated '+history.events.length+' events, '+history.periods.length+' periods and '+geo.places.length+' places and '+routes.networks.length+' networks.');
