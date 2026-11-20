@@ -1,12 +1,13 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "yearConvention": "astronomical",
   "notes": [
     "Astronomical year 0 corresponds to 1 BCE. Display dates must convert negative/zero years to BCE without a year zero.",
     "Years, locations, and historic period boundaries can be approximate or disputed; this dataset is an editorial prototype.",
     "Map positions are modern approximate coordinates, not historically surveyed city boundaries.",
     "region and category are editorial browsing metadata; they group events geographically and thematically, and do not imply a causal relationship.",
-    "trackId references data/regions.json and is a geographic/editorial track, not an ethnic or political classification. Cross-regional event tracks represent a chosen primary narrative lens."
+    "trackId references data/regions.json and is a geographic/editorial track, not an ethnic or political classification. Cross-regional event tracks represent a chosen primary narrative lens.",
+    "All events and periods now expose sources[] and sourceUrl. Existing entries are marked editorial-reference pending item-by-item corroboration; new regional records cite named institutional chronologies. Approximate observation years are not precise single-day events."
   ],
   "periods": [
     {
@@ -16,7 +17,15 @@
       "name": "商",
       "civilization": "cn",
       "precision": "approximate",
-      "trackId": "china"
+      "trackId": "china",
+      "sourceUrl": "https://www.britannica.com/topic/Shang-dynasty",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Shang-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
     },
     {
       "id": "zhou",
@@ -25,88 +34,15 @@
       "name": "周",
       "civilization": "cn",
       "precision": "approximate",
-      "trackId": "china"
-    },
-    {
-      "id": "qin",
-      "startYear": -221,
-      "endYear": -206,
-      "name": "秦",
-      "civilization": "cn",
-      "precision": "year",
-      "trackId": "china"
-    },
-    {
-      "id": "han",
-      "startYear": -202,
-      "endYear": 220,
-      "name": "汉",
-      "civilization": "cn",
-      "precision": "year",
-      "trackId": "china"
-    },
-    {
-      "id": "division",
-      "startYear": 220,
-      "endYear": 589,
-      "name": "魏晋南北朝",
-      "civilization": "cn",
-      "precision": "approximate",
-      "trackId": "china"
-    },
-    {
-      "id": "sui",
-      "startYear": 581,
-      "endYear": 618,
-      "name": "隋",
-      "civilization": "cn",
-      "precision": "year",
-      "trackId": "china"
-    },
-    {
-      "id": "tang",
-      "startYear": 618,
-      "endYear": 907,
-      "name": "唐",
-      "civilization": "cn",
-      "precision": "year",
-      "trackId": "china"
-    },
-    {
-      "id": "song",
-      "startYear": 960,
-      "endYear": 1279,
-      "name": "宋",
-      "civilization": "cn",
-      "precision": "year",
-      "trackId": "china"
-    },
-    {
-      "id": "yuan",
-      "startYear": 1271,
-      "endYear": 1368,
-      "name": "元",
-      "civilization": "cn",
-      "precision": "year",
-      "trackId": "china"
-    },
-    {
-      "id": "ming",
-      "startYear": 1368,
-      "endYear": 1644,
-      "name": "明",
-      "civilization": "cn",
-      "precision": "year",
-      "trackId": "china"
-    },
-    {
-      "id": "qing",
-      "startYear": 1636,
-      "endYear": 1912,
-      "name": "清",
-      "civilization": "cn",
-      "precision": "year",
-      "trackId": "china"
+      "trackId": "china",
+      "sourceUrl": "https://www.britannica.com/topic/Zhou-dynasty",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Zhou-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
     },
     {
       "id": "roman-republic",
@@ -115,7 +51,66 @@
       "name": "罗马共和国",
       "civilization": "world",
       "precision": "traditional",
-      "trackId": "europe"
+      "trackId": "europe",
+      "sourceUrl": "https://www.britannica.com/place/Roman-Republic",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/place/Roman-Republic",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
+    },
+    {
+      "id": "maurya",
+      "startYear": -320,
+      "endYear": -184,
+      "name": "孔雀王朝",
+      "civilization": "world",
+      "trackId": "south-asia",
+      "precision": "approximate",
+      "sourceUrl": "https://education.nationalgeographic.org/resource/mauryan-empire/",
+      "sources": [
+        {
+          "url": "https://education.nationalgeographic.org/resource/mauryan-empire/",
+          "kind": "institutional-chronology"
+        }
+      ],
+      "note": "时期起止为研究与编辑上的约略界限，不能作为政权绝对疆界"
+    },
+    {
+      "id": "qin",
+      "startYear": -221,
+      "endYear": -206,
+      "name": "秦",
+      "civilization": "cn",
+      "precision": "year",
+      "trackId": "china",
+      "sourceUrl": "https://www.britannica.com/topic/Qin-dynasty",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Qin-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
+    },
+    {
+      "id": "han",
+      "startYear": -202,
+      "endYear": 220,
+      "name": "汉",
+      "civilization": "cn",
+      "precision": "year",
+      "trackId": "china",
+      "sourceUrl": "https://www.britannica.com/topic/Han-dynasty",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Han-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
     },
     {
       "id": "western-rome",
@@ -124,7 +119,117 @@
       "name": "罗马帝国（西部）",
       "civilization": "world",
       "precision": "approximate",
-      "trackId": "europe"
+      "trackId": "europe",
+      "sourceUrl": "https://www.britannica.com/place/Roman-Empire",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/place/Roman-Empire",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
+    },
+    {
+      "id": "aksum",
+      "startYear": 100,
+      "endYear": 800,
+      "name": "阿克苏姆文明",
+      "civilization": "world",
+      "trackId": "africa",
+      "precision": "approximate",
+      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/06/afa.html",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/de/toah/ht/06/afa.html",
+          "kind": "institutional-chronology"
+        }
+      ],
+      "note": "时期起止为研究与编辑上的约略界限，不能作为政权绝对疆界"
+    },
+    {
+      "id": "division",
+      "startYear": 220,
+      "endYear": 589,
+      "name": "魏晋南北朝",
+      "civilization": "cn",
+      "precision": "approximate",
+      "trackId": "china",
+      "sourceUrl": "https://www.britannica.com/place/China/The-Six-Dynasties",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/place/China/The-Six-Dynasties",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
+    },
+    {
+      "id": "maya-classic",
+      "startYear": 250,
+      "endYear": 900,
+      "name": "玛雅古典期",
+      "civilization": "world",
+      "trackId": "americas",
+      "precision": "approximate",
+      "sourceUrl": "https://www.metmuseum.org/ja/exhibitions/arts-of-the-ancient-americas/inside-the-exhibition",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/ja/exhibitions/arts-of-the-ancient-americas/inside-the-exhibition",
+          "kind": "institutional-chronology"
+        }
+      ],
+      "note": "时期起止为研究与编辑上的约略界限，不能作为政权绝对疆界"
+    },
+    {
+      "id": "gupta",
+      "startYear": 321,
+      "endYear": 500,
+      "name": "笈多王朝（北印度）",
+      "civilization": "world",
+      "trackId": "south-asia",
+      "precision": "approximate",
+      "sourceUrl": "https://www.metmuseum.org/zh/toah/ht/05/ssa.html",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/zh/toah/ht/05/ssa.html",
+          "kind": "institutional-chronology"
+        }
+      ],
+      "note": "时期起止为研究与编辑上的约略界限，不能作为政权绝对疆界"
+    },
+    {
+      "id": "sui",
+      "startYear": 581,
+      "endYear": 618,
+      "name": "隋",
+      "civilization": "cn",
+      "precision": "year",
+      "trackId": "china",
+      "sourceUrl": "https://www.britannica.com/topic/Sui-dynasty",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Sui-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
+    },
+    {
+      "id": "tang",
+      "startYear": 618,
+      "endYear": 907,
+      "name": "唐",
+      "civilization": "cn",
+      "precision": "year",
+      "trackId": "china",
+      "sourceUrl": "https://www.britannica.com/topic/Tang-dynasty",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Tang-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
     },
     {
       "id": "abbasid",
@@ -133,7 +238,49 @@
       "name": "阿拔斯王朝",
       "civilization": "world",
       "precision": "year",
-      "trackId": "west-asia"
+      "trackId": "west-asia",
+      "sourceUrl": "https://www.britannica.com/topic/Abbasid-caliphate",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Abbasid-caliphate",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
+    },
+    {
+      "id": "swahili-culture",
+      "startYear": 800,
+      "endYear": 1900,
+      "name": "斯瓦希里海岸文化",
+      "civilization": "world",
+      "trackId": "africa",
+      "precision": "approximate",
+      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/06/afa.html",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/de/toah/ht/06/afa.html",
+          "kind": "institutional-chronology"
+        }
+      ],
+      "note": "时期起止为研究与编辑上的约略界限，不能作为政权绝对疆界"
+    },
+    {
+      "id": "song",
+      "startYear": 960,
+      "endYear": 1279,
+      "name": "宋",
+      "civilization": "cn",
+      "precision": "year",
+      "trackId": "china",
+      "sourceUrl": "https://www.britannica.com/topic/Song-dynasty",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Song-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
     },
     {
       "id": "mongol",
@@ -142,7 +289,134 @@
       "name": "蒙古帝国时期",
       "civilization": "world",
       "precision": "approximate",
-      "trackId": "east-asia"
+      "trackId": "east-asia",
+      "sourceUrl": "https://www.britannica.com/place/Mongol-empire",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/place/Mongol-empire",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
+    },
+    {
+      "id": "delhi-sultanate",
+      "startYear": 1206,
+      "endYear": 1526,
+      "name": "德里苏丹国时期",
+      "civilization": "world",
+      "trackId": "south-asia",
+      "precision": "approximate",
+      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/08/ssa.html",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/de/toah/ht/08/ssa.html",
+          "kind": "institutional-chronology"
+        }
+      ],
+      "note": "时期起止为研究与编辑上的约略界限，不能作为政权绝对疆界"
+    },
+    {
+      "id": "mali-empire",
+      "startYear": 1235,
+      "endYear": 1510,
+      "name": "马里帝国",
+      "civilization": "world",
+      "trackId": "africa",
+      "precision": "approximate",
+      "sourceUrl": "https://www.metmuseum.org/ru/toah/ht/07/afu",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/ru/toah/ht/07/afu",
+          "kind": "institutional-chronology"
+        }
+      ],
+      "note": "时期起止为研究与编辑上的约略界限，不能作为政权绝对疆界"
+    },
+    {
+      "id": "great-zimbabwe",
+      "startYear": 1250,
+      "endYear": 1450,
+      "name": "大津巴布韦文化",
+      "civilization": "world",
+      "trackId": "africa",
+      "precision": "approximate",
+      "sourceUrl": "https://www.metmuseum.org/zh/toah/ht/07/afa",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/zh/toah/ht/07/afa",
+          "kind": "institutional-chronology"
+        }
+      ],
+      "note": "时期起止为研究与编辑上的约略界限，不能作为政权绝对疆界"
+    },
+    {
+      "id": "yuan",
+      "startYear": 1271,
+      "endYear": 1368,
+      "name": "元",
+      "civilization": "cn",
+      "precision": "year",
+      "trackId": "china",
+      "sourceUrl": "https://www.britannica.com/topic/Yuan-dynasty",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Yuan-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
+    },
+    {
+      "id": "vijayanagara",
+      "startYear": 1336,
+      "endYear": 1565,
+      "name": "毗奢耶那伽罗王朝",
+      "civilization": "world",
+      "trackId": "south-asia",
+      "precision": "approximate",
+      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/08/ssa.html",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/de/toah/ht/08/ssa.html",
+          "kind": "institutional-chronology"
+        }
+      ],
+      "note": "时期起止为研究与编辑上的约略界限，不能作为政权绝对疆界"
+    },
+    {
+      "id": "aztec-state",
+      "startYear": 1350,
+      "endYear": 1521,
+      "name": "阿兹特克国家",
+      "civilization": "world",
+      "trackId": "americas",
+      "precision": "approximate",
+      "sourceUrl": "https://artistproject.metmuseum.org/toah/ht/08/canm.html",
+      "sources": [
+        {
+          "url": "https://artistproject.metmuseum.org/toah/ht/08/canm.html",
+          "kind": "institutional-chronology"
+        }
+      ],
+      "note": "时期起止为研究与编辑上的约略界限，不能作为政权绝对疆界"
+    },
+    {
+      "id": "ming",
+      "startYear": 1368,
+      "endYear": 1644,
+      "name": "明",
+      "civilization": "cn",
+      "precision": "year",
+      "trackId": "china",
+      "sourceUrl": "https://www.britannica.com/topic/Ming-dynasty",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Ming-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
     },
     {
       "id": "renaissance",
@@ -151,7 +425,83 @@
       "name": "欧洲文艺复兴",
       "civilization": "world",
       "precision": "approximate",
-      "trackId": "europe"
+      "trackId": "europe",
+      "sourceUrl": "https://www.britannica.com/event/Renaissance",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/event/Renaissance",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
+    },
+    {
+      "id": "inca-state",
+      "startYear": 1438,
+      "endYear": 1532,
+      "name": "印加帝国扩张期",
+      "civilization": "world",
+      "trackId": "americas",
+      "precision": "approximate",
+      "sourceUrl": "https://artistproject.metmuseum.org/toah/ht/08/sanc.html",
+      "sources": [
+        {
+          "url": "https://artistproject.metmuseum.org/toah/ht/08/sanc.html",
+          "kind": "institutional-chronology"
+        }
+      ],
+      "note": "时期起止为研究与编辑上的约略界限，不能作为政权绝对疆界"
+    },
+    {
+      "id": "songhai",
+      "startYear": 1464,
+      "endYear": 1591,
+      "name": "桑海帝国兴盛期",
+      "civilization": "world",
+      "trackId": "africa",
+      "precision": "approximate",
+      "sourceUrl": "https://www.metmuseum.org/ru/toah/ht/07/afu",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/ru/toah/ht/07/afu",
+          "kind": "institutional-chronology"
+        }
+      ],
+      "note": "时期起止为研究与编辑上的约略界限，不能作为政权绝对疆界"
+    },
+    {
+      "id": "mughal",
+      "startYear": 1526,
+      "endYear": 1858,
+      "name": "莫卧儿王朝",
+      "civilization": "world",
+      "trackId": "south-asia",
+      "precision": "approximate",
+      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/08/ssa.html",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/de/toah/ht/08/ssa.html",
+          "kind": "institutional-chronology"
+        }
+      ],
+      "note": "时期起止为研究与编辑上的约略界限，不能作为政权绝对疆界"
+    },
+    {
+      "id": "qing",
+      "startYear": 1636,
+      "endYear": 1912,
+      "name": "清",
+      "civilization": "cn",
+      "precision": "year",
+      "trackId": "china",
+      "sourceUrl": "https://www.britannica.com/topic/Qing-dynasty",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Qing-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
     },
     {
       "id": "industrial",
@@ -160,7 +510,15 @@
       "name": "工业革命早期",
       "civilization": "world",
       "precision": "approximate",
-      "trackId": "europe"
+      "trackId": "europe",
+      "sourceUrl": "https://www.britannica.com/event/Industrial-Revolution",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/event/Industrial-Revolution",
+          "kind": "editorial-reference",
+          "note": "既有历史分期的一般参考资料，边界约略且需持续复核"
+        }
+      ]
     }
   ],
   "events": [
@@ -177,7 +535,14 @@
       "sourceUrl": "https://www.britannica.com/topic/Zhou-dynasty",
       "region": "东亚 · 中国",
       "category": "政权与制度",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Zhou-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "confucius",
@@ -190,7 +555,14 @@
       "sourceUrl": "https://www.britannica.com/biography/Confucius",
       "region": "东亚 · 中国",
       "category": "思想与文化",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/biography/Confucius",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "roman-republic",
@@ -205,7 +577,34 @@
       "sourceUrl": "https://www.britannica.com/place/Roman-Republic",
       "region": "欧洲 · 地中海",
       "category": "政权与制度",
-      "trackId": "europe"
+      "trackId": "europe",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/place/Roman-Republic",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
+    },
+    {
+      "id": "maurya-foundation",
+      "year": -320,
+      "title": "孔雀王朝兴起",
+      "civilization": "world",
+      "trackId": "south-asia",
+      "placeIds": [],
+      "precision": "approximate",
+      "summary": "约公元前321年，旃陀罗笈多建立孔雀王朝，随后逐步扩展统治区域；使用约略年代定位。",
+      "region": "南亚 · 印度次大陆",
+      "category": "政权与制度",
+      "sourceUrl": "https://education.nationalgeographic.org/resource/mauryan-empire/",
+      "sources": [
+        {
+          "url": "https://education.nationalgeographic.org/resource/mauryan-empire/",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
     },
     {
       "id": "qin-unification",
@@ -221,7 +620,14 @@
       "storyId": "qin",
       "region": "东亚 · 中国",
       "category": "政权与制度",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/place/Qin-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "han-foundation",
@@ -236,7 +642,14 @@
       "sourceUrl": "https://www.britannica.com/topic/Han-dynasty",
       "region": "东亚 · 中国",
       "category": "政权与制度",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Han-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "augustus",
@@ -251,7 +664,14 @@
       "sourceUrl": "https://www.britannica.com/place/Roman-Empire",
       "region": "欧洲 · 地中海",
       "category": "政权与制度",
-      "trackId": "europe"
+      "trackId": "europe",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/place/Roman-Empire",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "eastern-han-end",
@@ -266,7 +686,74 @@
       "sourceUrl": "https://www.britannica.com/topic/Han-dynasty",
       "region": "东亚 · 中国",
       "category": "政权与制度",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Han-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
+    },
+    {
+      "id": "aksum-gold-coins",
+      "year": 270,
+      "title": "阿克苏姆铸造金币",
+      "civilization": "world",
+      "trackId": "africa",
+      "placeIds": [],
+      "precision": "approximate",
+      "summary": "约公元270年前后，阿克苏姆开始铸造金币，反映其与红海和更广阔贸易网络的联系。",
+      "region": "非洲 · 非洲之角",
+      "category": "经济与贸易",
+      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/06/afa.html",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/de/toah/ht/06/afa.html",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
+    },
+    {
+      "id": "gupta-rise",
+      "year": 320,
+      "title": "笈多王朝在北印度崛起",
+      "civilization": "world",
+      "trackId": "south-asia",
+      "placeIds": [],
+      "precision": "approximate",
+      "summary": "约公元320年前后，笈多王朝在北印度崛起，其影响与版图随统治者及时间变化。",
+      "region": "南亚 · 北印度",
+      "category": "政权与制度",
+      "sourceUrl": "https://www.metmuseum.org/zh/toah/ht/05/ssa.html",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/zh/toah/ht/05/ssa.html",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
+    },
+    {
+      "id": "ezana-conversion",
+      "year": 330,
+      "title": "阿克苏姆统治者埃扎纳改宗基督教",
+      "civilization": "world",
+      "trackId": "africa",
+      "placeIds": [],
+      "precision": "approximate",
+      "summary": "约公元330年前后，阿克苏姆统治者埃扎纳改宗基督教；铭文与钱币上的宗教符号反映了这一转变。",
+      "region": "非洲 · 非洲之角",
+      "category": "宗教与思想",
+      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/06/afa.html",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/de/toah/ht/06/afa.html",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
     },
     {
       "id": "western-rome-end",
@@ -281,7 +768,34 @@
       "sourceUrl": "https://www.britannica.com/place/Roman-Empire",
       "region": "欧洲 · 地中海",
       "category": "政权与制度",
-      "trackId": "europe"
+      "trackId": "europe",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/place/Roman-Empire",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
+    },
+    {
+      "id": "maya-classic-observation",
+      "year": 600,
+      "title": "古典期玛雅城邦与文字文化繁盛",
+      "civilization": "world",
+      "trackId": "americas",
+      "placeIds": [],
+      "precision": "approximate",
+      "summary": "约公元600年，玛雅地区多个相互竞争的城邦拥有复杂的书写和艺术传统；这是古典期中的示例观察年份，不是某一事件的确切日期。",
+      "region": "美洲 · 中美洲玛雅地区",
+      "category": "思想与文化",
+      "sourceUrl": "https://www.metmuseum.org/ja/exhibitions/arts-of-the-ancient-americas/inside-the-exhibition",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/ja/exhibitions/arts-of-the-ancient-americas/inside-the-exhibition",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
     },
     {
       "id": "tang-foundation",
@@ -297,7 +811,14 @@
       "storyId": "tang",
       "region": "东亚 · 中国",
       "category": "政权与制度",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Tang-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "hijrah",
@@ -310,7 +831,14 @@
       "sourceUrl": "https://www.britannica.com/event/Hijrah-Islam",
       "region": "西亚 · 阿拉伯半岛",
       "category": "宗教与思想",
-      "trackId": "west-asia"
+      "trackId": "west-asia",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/event/Hijrah-Islam",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "abbasid-foundation",
@@ -326,7 +854,14 @@
       "storyId": "tang",
       "region": "西亚 · 两河流域",
       "category": "政权与制度",
-      "trackId": "west-asia"
+      "trackId": "west-asia",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Abbasid-caliphate",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "talas-battle",
@@ -342,7 +877,14 @@
       "storyId": "tang",
       "region": "中亚",
       "category": "战争与冲突",
-      "trackId": "central-asia"
+      "trackId": "central-asia",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Tang-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "anshi",
@@ -358,7 +900,34 @@
       "storyId": "tang",
       "region": "东亚 · 中国",
       "category": "战争与冲突",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Tang-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
+    },
+    {
+      "id": "swahili-coast-trade",
+      "year": 850,
+      "title": "斯瓦希里海岸贸易文化发展",
+      "civilization": "world",
+      "trackId": "africa",
+      "placeIds": [],
+      "precision": "approximate",
+      "summary": "约9世纪，东非沿海与阿拉伯海、印度洋贸易网络的联系推动当地城市和斯瓦希里文化发展；这是一个长期过程的约略观察点。",
+      "region": "非洲 · 东非海岸",
+      "category": "经济与贸易",
+      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/06/afa.html",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/de/toah/ht/06/afa.html",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
     },
     {
       "id": "song-foundation",
@@ -373,7 +942,14 @@
       "sourceUrl": "https://www.britannica.com/topic/Song-dynasty",
       "region": "东亚 · 中国",
       "category": "政权与制度",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Song-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "movable-type",
@@ -388,7 +964,14 @@
       "sourceUrl": "https://www.britannica.com/technology/printing-publishing",
       "region": "东亚 · 中国",
       "category": "科技与知识",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/technology/printing-publishing",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "mongol-foundation",
@@ -401,7 +984,34 @@
       "sourceUrl": "https://www.britannica.com/place/Mongol-empire",
       "region": "东亚 · 蒙古高原",
       "category": "政权与制度",
-      "trackId": "east-asia"
+      "trackId": "east-asia",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/place/Mongol-empire",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
+    },
+    {
+      "id": "mali-emergence",
+      "year": 1235,
+      "title": "马里帝国兴起",
+      "civilization": "world",
+      "trackId": "africa",
+      "placeIds": [],
+      "precision": "approximate",
+      "summary": "约1230—1235年间，松迪亚塔的胜利通常被视为马里帝国形成的重要节点；口传传统与史料记载需区别。",
+      "region": "非洲 · 西非",
+      "category": "政权与制度",
+      "sourceUrl": "https://www.metmuseum.org/ru/toah/ht/07/afu",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/ru/toah/ht/07/afu",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
     },
     {
       "id": "yuan-name",
@@ -414,7 +1024,54 @@
       "sourceUrl": "https://www.britannica.com/topic/Yuan-dynasty",
       "region": "东亚 · 中国",
       "category": "政权与制度",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Yuan-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
+    },
+    {
+      "id": "mansa-musa-pilgrimage",
+      "year": 1324,
+      "title": "曼萨·穆萨赴麦加朝觐",
+      "civilization": "world",
+      "trackId": "africa",
+      "placeIds": [],
+      "precision": "year",
+      "summary": "1324—1325年，马里统治者曼萨·穆萨前往麦加朝觐，其旅程使马里帝国的财富与区域联系广为人知。",
+      "region": "非洲 · 西非及北非",
+      "category": "宗教与思想",
+      "sourceUrl": "https://www.metmuseum.org/ru/toah/ht/07/afu",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/ru/toah/ht/07/afu",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
+    },
+    {
+      "id": "vijayanagara-rise",
+      "year": 1336,
+      "title": "毗奢耶那伽罗王朝兴起",
+      "civilization": "world",
+      "trackId": "south-asia",
+      "placeIds": [],
+      "precision": "approximate",
+      "summary": "14世纪，毗奢耶那伽罗王朝兴起。这里采用常见的1336年作为约略定位，并非整个南印度同时统一。",
+      "region": "南亚 · 德干与南印度",
+      "category": "政权与制度",
+      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/08/ssa.html",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/de/toah/ht/08/ssa.html",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
     },
     {
       "id": "ming-foundation",
@@ -429,7 +1086,14 @@
       "sourceUrl": "https://www.britannica.com/topic/Ming-dynasty",
       "region": "东亚 · 中国",
       "category": "政权与制度",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Ming-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "zhenghe-voyage",
@@ -447,7 +1111,74 @@
       "storyId": "ocean",
       "region": "东亚 · 中国 / 印度洋",
       "category": "航海与交流",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/biography/Zheng-He",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
+    },
+    {
+      "id": "kiche-expansion",
+      "year": 1410,
+      "title": "基切玛雅王国扩张",
+      "civilization": "world",
+      "trackId": "americas",
+      "placeIds": [],
+      "precision": "approximate",
+      "summary": "约1410年前后，基切玛雅王国在危地马拉高地及邻近地区扩张影响。",
+      "region": "美洲 · 危地马拉高地",
+      "category": "政权与制度",
+      "sourceUrl": "https://artistproject.metmuseum.org/toah/ht/08/cana.html",
+      "sources": [
+        {
+          "url": "https://artistproject.metmuseum.org/toah/ht/08/cana.html",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
+    },
+    {
+      "id": "cozumel-trade",
+      "year": 1420,
+      "title": "科苏梅尔作为贸易与朝圣中心",
+      "civilization": "world",
+      "trackId": "americas",
+      "placeIds": [],
+      "precision": "approximate",
+      "summary": "约1420年前后，科苏梅尔是重要的贸易港和朝圣中心；这一定位表达持续发展的历史状态。",
+      "region": "美洲 · 尤卡坦地区",
+      "category": "经济与贸易",
+      "sourceUrl": "https://artistproject.metmuseum.org/toah/ht/08/cana.html",
+      "sources": [
+        {
+          "url": "https://artistproject.metmuseum.org/toah/ht/08/cana.html",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
+    },
+    {
+      "id": "inca-expansion",
+      "year": 1438,
+      "title": "印加国家开始大规模扩张",
+      "civilization": "world",
+      "trackId": "americas",
+      "placeIds": [],
+      "precision": "approximate",
+      "summary": "约1438年，帕查库蒂的扩张与库斯科政治中心建设成为印加帝国形成的重要阶段。",
+      "region": "美洲 · 安第斯地区",
+      "category": "政权与制度",
+      "sourceUrl": "https://artistproject.metmuseum.org/toah/ht/08/sanc.html",
+      "sources": [
+        {
+          "url": "https://artistproject.metmuseum.org/toah/ht/08/sanc.html",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
     },
     {
       "id": "gutenberg",
@@ -460,7 +1191,54 @@
       "sourceUrl": "https://www.britannica.com/biography/Johannes-Gutenberg",
       "region": "欧洲 · 德意志地区",
       "category": "科技与知识",
-      "trackId": "europe"
+      "trackId": "europe",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/biography/Johannes-Gutenberg",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
+    },
+    {
+      "id": "machu-picchu",
+      "year": 1460,
+      "title": "马丘比丘营建与使用",
+      "civilization": "world",
+      "trackId": "americas",
+      "placeIds": [],
+      "precision": "approximate",
+      "summary": "约1460年前后，马丘比丘作为印加统治者帕查库蒂相关的山地庄园和礼仪场所兴建、使用。",
+      "region": "美洲 · 安第斯地区",
+      "category": "思想与文化",
+      "sourceUrl": "https://artistproject.metmuseum.org/toah/ht/08/sanc.html",
+      "sources": [
+        {
+          "url": "https://artistproject.metmuseum.org/toah/ht/08/sanc.html",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
+    },
+    {
+      "id": "songhai-timbuktu",
+      "year": 1468,
+      "title": "桑海统治者夺取廷巴克图",
+      "civilization": "world",
+      "trackId": "africa",
+      "placeIds": [],
+      "precision": "year",
+      "summary": "1468年，桑海统治者桑尼·阿里夺取廷巴克图，西非内陆政治与商贸格局继续变化。",
+      "region": "非洲 · 西非",
+      "category": "政权与制度",
+      "sourceUrl": "https://www.metmuseum.org/ru/toah/ht/07/afu",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/ru/toah/ht/07/afu",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
     },
     {
       "id": "columbus",
@@ -473,7 +1251,94 @@
       "sourceUrl": "https://www.britannica.com/biography/Christopher-Columbus",
       "region": "美洲 · 加勒比地区",
       "category": "航海与交流",
-      "trackId": "americas"
+      "trackId": "americas",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/biography/Christopher-Columbus",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
+    },
+    {
+      "id": "aztec-conquest",
+      "year": 1521,
+      "title": "阿兹特克政权遭西班牙征服",
+      "civilization": "world",
+      "trackId": "americas",
+      "placeIds": [],
+      "precision": "year",
+      "summary": "1521年，特诺奇蒂特兰陷落，阿兹特克政治格局发生重大变化；美洲原住民历史并未因此终结。",
+      "region": "美洲 · 墨西哥中部",
+      "category": "战争与冲突",
+      "sourceUrl": "https://artistproject.metmuseum.org/toah/ht/08/canm.html",
+      "sources": [
+        {
+          "url": "https://artistproject.metmuseum.org/toah/ht/08/canm.html",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
+    },
+    {
+      "id": "mughal-panipat",
+      "year": 1526,
+      "title": "第一次帕尼帕特战役与莫卧儿王朝开端",
+      "civilization": "world",
+      "trackId": "south-asia",
+      "placeIds": [],
+      "precision": "year",
+      "summary": "1526年，巴布尔击败德里洛迪王朝军队，标志莫卧儿王朝在北印度开始建立统治。",
+      "region": "南亚 · 北印度",
+      "category": "战争与冲突",
+      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/08/ssa.html",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/de/toah/ht/08/ssa.html",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
+    },
+    {
+      "id": "akbar-accession",
+      "year": 1556,
+      "title": "阿克巴继位",
+      "civilization": "world",
+      "trackId": "south-asia",
+      "placeIds": [],
+      "precision": "year",
+      "summary": "1556年，阿克巴继位。此后莫卧儿政权的行政与文化影响进一步扩展。",
+      "region": "南亚 · 北印度",
+      "category": "政权与制度",
+      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/08/ssa.html",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/de/toah/ht/08/ssa.html",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
+    },
+    {
+      "id": "vijayanagara-1565",
+      "year": 1565,
+      "title": "毗奢耶那伽罗首都遭攻陷",
+      "civilization": "world",
+      "trackId": "south-asia",
+      "placeIds": [],
+      "precision": "year",
+      "summary": "1565年，毗奢耶那伽罗王国在军事失败后，其首都遭到攻陷和劫掠；南印度区域政权历史仍持续发展。",
+      "region": "南亚 · 南印度",
+      "category": "战争与冲突",
+      "sourceUrl": "https://www.metmuseum.org/de/toah/ht/08/ssa.html",
+      "sources": [
+        {
+          "url": "https://www.metmuseum.org/de/toah/ht/08/ssa.html",
+          "kind": "institutional-chronology",
+          "note": "编辑摘要参考来源；未逐条进行独立档案比对"
+        }
+      ]
     },
     {
       "id": "qing-entry",
@@ -486,7 +1351,14 @@
       "sourceUrl": "https://www.britannica.com/topic/Qing-dynasty",
       "region": "东亚 · 中国",
       "category": "战争与冲突",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/topic/Qing-dynasty",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "declaration",
@@ -501,7 +1373,14 @@
       "sourceUrl": "https://www.archives.gov/founding-docs/declaration-transcript",
       "region": "北美 · 北美洲",
       "category": "政治与制度",
-      "trackId": "americas"
+      "trackId": "americas",
+      "sources": [
+        {
+          "url": "https://www.archives.gov/founding-docs/declaration-transcript",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "french-revolution",
@@ -516,7 +1395,14 @@
       "sourceUrl": "https://www.britannica.com/event/French-Revolution",
       "region": "欧洲 · 法国",
       "category": "战争与冲突",
-      "trackId": "europe"
+      "trackId": "europe",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/event/French-Revolution",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "opium-war",
@@ -529,7 +1415,14 @@
       "sourceUrl": "https://www.britannica.com/event/Opium-Wars",
       "region": "东亚 · 中国",
       "category": "战争与冲突",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/event/Opium-Wars",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "xinhai",
@@ -542,7 +1435,14 @@
       "sourceUrl": "https://www.britannica.com/event/Chinese-Revolution-1911-1912",
       "region": "东亚 · 中国",
       "category": "政治与制度",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/event/Chinese-Revolution-1911-1912",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "ww1",
@@ -555,7 +1455,14 @@
       "sourceUrl": "https://www.britannica.com/event/World-War-I",
       "region": "全球 · 欧洲及其他地区",
       "category": "战争与冲突",
-      "trackId": "global"
+      "trackId": "global",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/event/World-War-I",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "ww2-end",
@@ -568,7 +1475,14 @@
       "sourceUrl": "https://www.britannica.com/event/World-War-II",
       "region": "全球 · 多个战区",
       "category": "战争与冲突",
-      "trackId": "global"
+      "trackId": "global",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/event/World-War-II",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     },
     {
       "id": "prc-foundation",
@@ -581,7 +1495,14 @@
       "sourceUrl": "https://www.britannica.com/place/China",
       "region": "东亚 · 中国",
       "category": "政治与制度",
-      "trackId": "china"
+      "trackId": "china",
+      "sources": [
+        {
+          "url": "https://www.britannica.com/place/China",
+          "kind": "editorial-reference",
+          "note": "既有事件来源，待进一步逐项复核"
+        }
+      ]
     }
   ]
 }
