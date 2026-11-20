@@ -1,7 +1,7 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b1422"><title>时空对望 · Parallel Histories</title><style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@400;600&display=swap');
 :root{color-scheme:dark;font-family:'Noto Sans SC',sans-serif;background:#0b1422;color:#eee9da}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 55% -15%,#26394b 0,transparent 58%),#0b1422;min-height:100vh}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid #c9a46a;outline-offset:3px}header{display:flex;align-items:center;justify-content:space-between;padding:24px clamp(18px,5vw,80px);border-bottom:1px solid #ffffff16}.brand{font-family:'Noto Serif SC',serif;font-size:20px;letter-spacing:.16em}.brand small{display:block;font:10px sans-serif;letter-spacing:.24em;color:#9babb9;margin-top:5px}.nav{display:flex;gap:12px;align-items:center}.nav button,.toolbar button,.actions button{border:1px solid #ffffff25;background:#ffffff0a;color:#e5e6e6;border-radius:30px;padding:9px 16px}.nav button:hover,.toolbar button:hover,.actions button:hover{background:#ffffff1b}.hero{text-align:center;padding:52px 20px 32px}.eyebrow{color:#c9a46a;letter-spacing:.35em;font-size:11px}.hero h1{font:clamp(32px,5vw,64px) 'Noto Serif SC',serif;font-weight:500;letter-spacing:.12em;margin:16px 0}.hero p{color:#a5b4c2;line-height:1.9;font-size:14px}.shell{max-width:1320px;margin:0 auto;padding:0 24px 70px}.panel{border:1px solid #ffffff1c;border-radius:22px;background:linear-gradient(145deg,#142337dd,#0b1728ee);box-shadow:0 20px 90px #0004;overflow:hidden}.panelhead{display:flex;align-items:center;justify-content:space-between;padding:25px 30px 8px;gap:14px;flex-wrap:wrap}.date{font:clamp(28px,4vw,44px) 'Noto Serif SC',serif;color:#e4c08b}.hint{color:#8294a6;font-size:12px}.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:14px 28px 22px}.toolbar input{background:#0c1725;border:1px solid #ffffff26;border-radius:22px;padding:10px 14px;color:#eee;min-width:170px;flex:1}.toolbar button{font-size:12px}.canvaswrap{position:relative;touch-action:none;height:380px;cursor:grab}.canvaswrap:active{cursor:grabbing}canvas{display:block;width:100%;height:100%}.bottom{padding:15px 30px 26px;border-top:1px solid #ffffff12;display:flex;justify-content:space-between;gap:15px;color:#90a1b1;font-size:12px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:20px}.card{border:1px solid #ffffff1c;border-radius:17px;padding:24px;background:#142033bb;min-height:170px}.card .tag{font-size:11px;letter-spacing:.18em;color:#c9a46a}.card.world .tag{color:#79b9d2}.card h2{font:24px 'Noto Serif SC',serif;font-weight:500;margin:13px 0}.card p{font-size:13px;color:#aab9c7;line-height:1.85}.foot{text-align:center;color:#6f8295;font-size:11px;padding:25px}.overlay{position:fixed;inset:0;background:#030910b9;display:none;place-items:center;padding:18px;z-index:5;backdrop-filter:blur(10px)}.overlay.open{display:grid}.museum{width:min(680px,100%);max-height:90vh;overflow:auto;border:1px solid #d8bd8755;background:linear-gradient(150deg,#24364a,#101b2a 60%);border-radius:24px;padding:clamp(25px,5vw,50px);box-shadow:0 40px 100px #0009}.museum h2{font:clamp(27px,5vw,40px) 'Noto Serif SC',serif;color:#f0d5a5}.museum p{line-height:2;color:#b9c8d4}.museum .close{float:right;background:transparent;color:#fff;border:1px solid #ffffff44;border-radius:50%;width:36px;height:36px}.museum .tag{color:#c9a46a;letter-spacing:.18em;font-size:12px}.museum .source{border-top:1px solid #ffffff22;margin-top:30px;padding-top:15px;font-size:12px;color:#91a4b5}.museum a{color:#c9dced}@media(max-width:650px){header{padding:16px}.brand{font-size:17px}.nav{gap:5px}.nav button{font-size:11px;padding:7px 9px}.hero{padding:32px 12px 24px}.shell{padding:0 10px 40px}.panelhead{padding:20px 16px 8px}.toolbar{padding:12px 12px 18px}.canvaswrap{height:330px}.cards{grid-template-columns:1fr}.bottom{padding:15px}.card{padding:20px}}@media(prefers-reduced-motion:no-preference){.card,.nav button,.toolbar button{transition:background .2s,transform .2s}.card:hover{transform:translateY(-2px)}}
-</style><style>
+</style><style>/* V2.1 layout polish */@media(max-width:650px){.hero{padding:20px 16px 17px}.hero h1{font-size:clamp(24px,6.2vw,34px);margin:7px auto}.hero p{font-size:11px;line-height:1.6}.hero .eyebrow{font-size:8px}.panelhead>.hint{font-size:9px}.panelhead{align-items:flex-end}.date{font-size:28px}.canvaswrap{height:325px}}</style><style>
 /* V2: mobile-first museum treatment */
 :root{--gold:#d4ae72;--cyan:#80c4d9}
 body{background:radial-gradient(ellipse 70% 35% at 50% 0%,#263e4a55,transparent 80%),#08111e}
@@ -75,49 +75,58 @@ const canvas=document.getElementById('timeline'),ctx=canvas.getContext('2d'),wra
 const fmt=y=>y<=0?'前'+(1-y)+'年':'公元 '+Math.round(y)+' 年';const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));const pos=y=>(y-center)*scale+canvas.clientWidth/2;const year=x=>center+(x-canvas.clientWidth/2)/scale;
 function resize(){const r=wrap.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(r.width*d);canvas.height=Math.round(r.height*d);ctx.setTransform(d,0,0,d,0,0);draw()}new ResizeObserver(resize).observe(wrap);
 function draw(){
-const w=canvas.clientWidth,h=canvas.clientHeight;
+const w=canvas.clientWidth,h=canvas.clientHeight,mobile=w<680;
 ctx.clearRect(0,0,w,h);
-const mobile=w<680,step=[1,2,5,10,20,50,100,200,500,1000].find(n=>n*scale>=(mobile?115:95))||1000;
-ctx.textAlign='center';ctx.font=(mobile?'10':'11')+'px sans-serif';
+const step=[1,2,5,10,20,50,100,200,500,1000].find(n=>n*scale>=(mobile?105:95))||1000;
+ctx.font='10px sans-serif';ctx.textAlign='center';
 for(let y=Math.ceil(year(0)/step)*step;y<=year(w);y+=step){
-const x=pos(y);ctx.strokeStyle='#ffffff13';ctx.beginPath();ctx.moveTo(x,22);ctx.lineTo(x,h-18);ctx.stroke();
-ctx.fillStyle='#92a3b6';ctx.fillText(fmt(y),x,16)}
-const tracks=[{c:'cn',py:mobile?80:96,color:'#d4ae72',label:'中国历史'},{c:'world',py:mobile?220:258,color:'#80c4d9',label:'世界历史'}];
+const x=pos(y);ctx.strokeStyle='#ffffff13';ctx.beginPath();ctx.moveTo(x,22);ctx.lineTo(x,h-12);ctx.stroke();
+ctx.fillStyle='#9aabb9';ctx.fillText(fmt(y),x,16);
+}
+const tracks=[{c:'cn',py:mobile?76:92,color:'#d4ae72',label:'中国历史'},{c:'world',py:mobile?216:254,color:'#80c4d9',label:'世界历史'}];
 for(const tr of tracks){
 const {c,py,color,label}=tr;
-ctx.font='600 13px sans-serif';ctx.textAlign='left';ctx.fillStyle=color;ctx.fillText(label,18,py-28);
-ctx.fillStyle='#ffffff07';ctx.fillRect(0,py,w,34);
-ctx.strokeStyle=color+'33';ctx.beginPath();ctx.moveTo(0,py+34);ctx.lineTo(w,py+34);ctx.stroke();
-const ps=periods.filter(p=>p.c===c).sort((a,b)=>(b.b-b.a)-(a.b-a.a));
-for(const p of ps){
-let a=pos(p.a),b=pos(p.b);if(b<0||a>w)continue;
-const left=Math.max(0,a),right=Math.min(w,b),width=right-left;
-if(width<2)continue;
-ctx.fillStyle=color+'32';ctx.fillRect(left,py+2,width,29);
-ctx.fillStyle=color+'75';ctx.fillRect(left,py+2,2,29);
-if(width>(mobile?65:82)){
-const textWidth=ctx.measureText(p.t).width;
-if(width>textWidth+16){ctx.fillStyle='#eee9dc';ctx.font='11px sans-serif';ctx.textAlign='center';ctx.save();ctx.beginPath();ctx.rect(left+5,py+2,Math.max(0,width-10),29);ctx.clip();ctx.fillText(p.t,(left+right)/2,py+21);ctx.restore()}}
+ctx.font='600 13px sans-serif';ctx.textAlign='left';ctx.fillStyle=color;ctx.fillText(label,18,py-26);
+ctx.fillStyle='#ffffff08';ctx.fillRect(0,py,w,31);
+ctx.strokeStyle=color+'55';ctx.beginPath();ctx.moveTo(0,py+31);ctx.lineTo(w,py+31);ctx.stroke();
+const visiblePeriods=periods.filter(p=>p.c===c&&pos(p.b)>0&&pos(p.a)<w);
+const labelBoxes=[];
+for(const p of visiblePeriods){
+const a=pos(p.a),b=pos(p.b),left=Math.max(0,a),right=Math.min(w,b),width=right-left;
+if(width<3)continue;
+ctx.fillStyle=color+'2a';ctx.fillRect(left,py+2,width,27);
+ctx.fillStyle=color+'80';ctx.fillRect(left,py+2,2,27);
+if(width<55)continue;
+ctx.font='11px sans-serif';
+const tw=ctx.measureText(p.t).width;
+const tx=(left+right)/2;
+if(tw+18>width||tx-tw/2<6||tx+tw/2>w-6)continue;
+if(labelBoxes.some(b=>tx-tw/2<b.right+8&&tx+tw/2>b.left-8))continue;
+labelBoxes.push({left:tx-tw/2,right:tx+tw/2});
+ctx.fillStyle='#e7e5dc';ctx.textAlign='center';ctx.fillText(p.t,tx,py+20);
 }
-const visible=events.filter(e=>e.c===c&&pos(e.y)>-15&&pos(e.y)<w+15).sort((a,b)=>a.y-b.y);
-const lanes=[-999,-999];
+const visible=events.filter(e=>e.c===c&&pos(e.y)>-8&&pos(e.y)<w+8).sort((a,b)=>Math.abs(pos(a.y)-w/2)-Math.abs(pos(b.y)-w/2));
+const labelLanes=[[],[]];
 for(const e of visible){
 const x=pos(e.y);
-ctx.beginPath();ctx.fillStyle=color;ctx.arc(x,py+17,3.7,0,Math.PI*2);ctx.fill();
-if(scale<.19)continue;
-const label=e.t,maxWidth=mobile?88:120;
-ctx.font='11px sans-serif';
-const labelWidth=Math.min(maxWidth,ctx.measureText(label).width+12);
-let lane=lanes.findIndex(end=>x-labelWidth/2>end+12);
+ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,py+16,3.5,0,Math.PI*2);ctx.fill();
+if(scale<.17)continue;
+ctx.font='10.5px sans-serif';
+const textWidth=ctx.measureText(e.t).width;
+const maxLabel=mobile?88:126;
+if(textWidth>maxLabel)continue;
+const left=x-textWidth/2-5,right=x+textWidth/2+5;
+if(left<8||right>w-8)continue;
+const lane=labelLanes.findIndex(boxes=>!boxes.some(b=>left<b.right+12&&right>b.left-12));
 if(lane<0)continue;
-const ly=py+55+lane*20;
-ctx.fillStyle='#cbd5df';ctx.textAlign='center';
-ctx.save();ctx.beginPath();ctx.rect(Math.max(0,x-maxWidth/2),ly-12,Math.min(maxWidth,w),17);ctx.clip();ctx.fillText(label,x,ly);ctx.restore();
-lanes[lane]=x+labelWidth/2;
+labelLanes[lane].push({left,right});
+const ly=py+50+lane*22;
+ctx.strokeStyle=color+'70';ctx.beginPath();ctx.moveTo(x,py+30);ctx.lineTo(x,ly-14);ctx.stroke();
+ctx.fillStyle='#d2dce4';ctx.textAlign='center';ctx.fillText(e.t,x,ly);
 }
 }
-ctx.strokeStyle='#f0d3a2';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(w/2,25);ctx.lineTo(w/2,h-18);ctx.stroke();
-for(const tr of tracks){ctx.fillStyle='#f0d3a2';ctx.beginPath();ctx.arc(w/2,tr.py+17,5,0,Math.PI*2);ctx.fill()}
+ctx.strokeStyle='#f0d3a2';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(w/2,25);ctx.lineTo(w/2,h-12);ctx.stroke();
+for(const tr of tracks){ctx.fillStyle='#f0d3a2';ctx.beginPath();ctx.arc(w/2,tr.py+16,5,0,Math.PI*2);ctx.fill()}
 }
 function update(){center=clamp(center,-1600,1949);document.getElementById('date').textContent=fmt(Math.round(center));for(const c of ['cn','world']){const sorted=events.filter(e=>e.c===c).sort((a,b)=>Math.abs(a.y-center)-Math.abs(b.y-center));const e=sorted[0];document.getElementById(c==='cn'?'ctitle':'wtitle').textContent=e.t;document.getElementById(c==='cn'?'cdesc':'wdesc').textContent=fmt(e.y)+' · '+e.d}draw()}
 function zoom(f,x=canvas.clientWidth/2){const anchor=year(x);scale=clamp(scale*f,.065,6);center=anchor-(x-canvas.clientWidth/2)/scale;update()}
