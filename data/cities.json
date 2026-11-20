@@ -16,7 +16,36 @@
         "https://www.britannica.com/place/Xian-China"
       ],
       "image": "./assets/cities/changan.webp",
-      "imageAlt": "CHANG'AN · 历史城市艺术想象画面（非考古复原）"
+      "imageAlt": "CHANG'AN · 历史城市艺术想象画面（非考古复原）",
+      "hotspots": [
+        {
+          "id": "city-plan",
+          "label": "都城格局",
+          "title": "坊与市：理解长安的城市线索",
+          "body": "唐长安具有规划鲜明的都城格局，坊与市是理解城市空间和日常生活的重要线索。这个标记用于引出城市制度，并不对应插画中某一座可考建筑。",
+          "x": 70,
+          "y": 43,
+          "source": "https://www.britannica.com/place/Xian-China"
+        },
+        {
+          "id": "caravan",
+          "label": "商旅往来",
+          "title": "长安：跨区域往来的汇聚点",
+          "body": "商旅、使节与宗教人士的往来，让不同地区的物品与观念在长安交汇。跨区域交流由多个节点和路线构成，不应简化为一支商队走过的单一路线。",
+          "x": 82,
+          "y": 64,
+          "source": "https://www.unesco.org/en/silk-roads"
+        },
+        {
+          "id": "city-life",
+          "label": "城市生活",
+          "title": "都城不只有宫殿",
+          "body": "政治、宗教、商业与普通人的日常生活共同构成城市面貌。画面是历史氛围的艺术化表达，不是某一年长安街景的精确复原。",
+          "x": 59,
+          "y": 75,
+          "source": "https://www.britannica.com/place/Xian-China"
+        }
+      ]
     },
     {
       "id": "samarkand",
@@ -64,7 +93,36 @@
         "https://www.britannica.com/place/Malacca-Malaysia"
       ],
       "image": "./assets/cities/malacca.webp",
-      "imageAlt": "MALACCA · 历史城市艺术想象画面（非考古复原）"
+      "imageAlt": "MALACCA · 历史城市艺术想象画面（非考古复原）",
+      "hotspots": [
+        {
+          "id": "strait",
+          "label": "海峡位置",
+          "title": "连接南海与印度洋的海上通道",
+          "body": "马六甲海峡位于东南亚关键海域，连接南海与印度洋，是区域海上交通与贸易网络的重要通道。",
+          "x": 70,
+          "y": 43,
+          "source": "https://www.britannica.com/place/Malacca-Malaysia"
+        },
+        {
+          "id": "monsoon",
+          "label": "季风航行",
+          "title": "季风影响海上往来节奏",
+          "body": "季风规律影响印度洋及东南亚海域的航行安排。画面中的帆船用于表现海上交流氛围，不对应某一艘有明确档案记录的船只。",
+          "x": 82,
+          "y": 64,
+          "source": "https://www.unesco.org/en/silk-roads"
+        },
+        {
+          "id": "port-trade",
+          "label": "港口贸易",
+          "title": "15世纪的区域贸易枢纽",
+          "body": "15世纪的马六甲成为区域贸易枢纽，港口联系不同地区的商人、商品与文化。插画不是郑和船队某次抵港的纪实画面。",
+          "x": 58,
+          "y": 76,
+          "source": "https://www.britannica.com/place/Malacca-Malaysia"
+        }
+      ]
     }
   ]
 }
