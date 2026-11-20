@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "coordinateSystem": "WGS84",
+  "note": "Modern approximate coordinates for locating historical cities; not claims about historical borders or precise ancient urban footprints.",
+  "places": [
+    {"id":"changan","name":"长安（今西安）","lat":34.2658,"lon":108.9541,"region":"东亚","description":"汉唐时期的重要都城，位置以今西安市区为近似参照。"},
+    {"id":"luoyang","name":"洛阳","lat":34.6197,"lon":112.4540,"region":"东亚","description":"中国历史上多朝古都，现代城市坐标仅供定位。"},
+    {"id":"xianyang","name":"咸阳","lat":34.3296,"lon":108.7089,"region":"东亚","description":"秦朝都城所在地区，使用现代咸阳近似坐标。"},
+    {"id":"rome","name":"罗马","lat":41.9028,"lon":12.4964,"region":"欧洲","description":"罗马共和国与帝国的政治中心。"},
+    {"id":"constantinople","name":"君士坦丁堡（今伊斯坦布尔）","lat":41.0082,"lon":28.9784,"region":"欧洲／西亚","description":"拜占庭帝国都城，位置以今伊斯坦布尔为近似参照。"},
+    {"id":"baghdad","name":"巴格达","lat":33.3152,"lon":44.3661,"region":"西亚","description":"阿拔斯王朝自762年起营建的都城；750年时尚未成为其都城。"},
+    {"id":"damascus","name":"大马士革","lat":33.5138,"lon":36.2765,"region":"西亚","description":"倭马亚王朝的重要政治中心。"},
+    {"id":"samarkand","name":"撒马尔罕","lat":39.6542,"lon":66.9597,"region":"中亚","description":"中亚历史城市，丝绸之路沿线重要节点。"},
+    {"id":"talas","name":"怛罗斯地区（近似）","lat":42.52,"lon":72.24,"region":"中亚","description":"怛罗斯之战地点的近似区域定位，具体战场位置存在研究差异。"},
+    {"id":"kaifeng","name":"开封","lat":34.7971,"lon":114.3076,"region":"东亚","description":"北宋都城东京所在地区。"},
+    {"id":"nanjing","name":"南京","lat":32.0603,"lon":118.7969,"region":"东亚","description":"明朝初期都城，现代坐标用于近似定位。"},
+    {"id":"calicut","name":"古里（今科泽科德）","lat":11.2588,"lon":75.7804,"region":"南亚","description":"印度洋海上贸易港口，郑和船队曾到访。"},
+    {"id":"malacca","name":"马六甲","lat":2.1896,"lon":102.2501,"region":"东南亚","description":"15世纪重要的海上贸易港口。"},
+    {"id":"mombasa","name":"蒙巴萨","lat":-4.0435,"lon":39.6682,"region":"东非","description":"东非海岸历史港口；本项目不将其直接标记为郑和航线的确证停靠点。"},
+    {"id":"philadelphia","name":"费城","lat":39.9526,"lon":-75.1636,"region":"北美","description":"1776年美国独立宣言通过地点。"},
+    {"id":"paris","name":"巴黎","lat":48.8566,"lon":2.3522,"region":"欧洲","description":"法国大革命重要发生地。"}
+  ]
+}
