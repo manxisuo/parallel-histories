@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "note": "轨道是编辑用途的地理分组，不等同于单一文明、政治边界或历史因果关系。未收录事件的轨道并不意味着当地没有历史。跨区域事件采用主要叙事视角的轨道；更细的多地点映射留待后续扩展。",
+  "note": "轨道是编辑用途的地理分组，不等同于单一文明、政治边界或历史因果关系。未收录事件的轨道并不意味着当地没有历史。跨区域事件采用主要叙事视角的轨道；更细的多地点映射留待后续扩展。 V5.10 默认组合优先展示已有南亚、非洲、美洲史料的六条地区轨道，用户可以手动添加其他轨道。",
   "tracks": [
     {
       "id": "china",
@@ -18,7 +18,7 @@
       "id": "central-asia",
       "label": "中亚",
       "color": "#a3b8dd",
-      "defaultVisible": true
+      "defaultVisible": false
     },
     {
       "id": "west-asia",
@@ -30,7 +30,7 @@
       "id": "south-asia",
       "label": "南亚",
       "color": "#bcadcf",
-      "defaultVisible": false
+      "defaultVisible": true
     },
     {
       "id": "europe",
@@ -42,19 +42,19 @@
       "id": "africa",
       "label": "非洲",
       "color": "#b7cf88",
-      "defaultVisible": false
+      "defaultVisible": true
     },
     {
       "id": "americas",
       "label": "美洲",
       "color": "#e1a3b8",
-      "defaultVisible": false
+      "defaultVisible": true
     },
     {
       "id": "global",
       "label": "跨区域 / 全球",
       "color": "#c8c8c0",
-      "defaultVisible": true
+      "defaultVisible": false
     }
   ]
 }
