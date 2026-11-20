@@ -85,6 +85,7 @@ const data=await response.json();
 if(!Array.isArray(data.events)||!Array.isArray(data.periods))throw Error('历史数据格式错误');
 events=data.events.map(e=>({y:e.year,t:e.title,c:e.civilization,d:e.summary,s:e.sourceUrl,storyId:e.storyId,placeIds:e.placeIds||[],region:e.region|| (e.civilization==='cn'?'东亚 · 中国':'世界其他地区'),category:e.category||'历史事件',precision:e.precision||'approximate'}));
 periods=data.periods.map(p=>({a:p.startYear,b:p.endYear,t:p.name,c:p.civilization}));
+lastCompareKey='';
 update();
 }
 const canvas=document.getElementById('timeline'),ctx=canvas.getContext('2d'),wrap=document.getElementById('wrap');let center=750,scale=.23,drag=false,lastX=0,moved=false,touches=0,pinchDist=0;
