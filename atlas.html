@@ -72,12 +72,49 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 function draw(ts){
 if(cinemaEl.hidden||document.hidden){motionFrame=0;return}
 const dt=Math.min(32,ts-(motionLast||ts));motionLast=ts;motionCtx.clearRect(0,0,w,h);
+// Subtle multi-plane atmospheric drift: distant clouds move slower than foreground.
+const drift=(ts*.006)% (w+180);
+motionCtx.save();
+motionCtx.globalAlpha=.16;
+motionCtx.fillStyle=scene==='harbor'?'#d8e8e7':'#f4d5a4';
+for(let layer=0;layer<3;layer++){
+ const speed=layer===0?.12:layer===1?.24:.42,baseY=h*(.17+layer*.105),span=w+160;
+ const x=((ts*speed*.025)%(span))-80;
+ motionCtx.beginPath();motionCtx.ellipse(x,baseY,42+layer*10,5+layer*2,0,0,Math.PI*2);motionCtx.ellipse(x+35,baseY-3,28,6,0,0,Math.PI*2);motionCtx.fill();
+}
+motionCtx.restore();
 if(scene==='harbor'){
-motionCtx.strokeStyle='rgba(164,210,220,.20)';motionCtx.lineWidth=1;
-for(let row=0;row<5;row++){const y=h*(.70+row*.055);motionCtx.beginPath();for(let x=0;x<=w;x+=8){const yy=y+Math.sin(x*.018+ts*.00065+row)*3; x===0?motionCtx.moveTo(x,yy):motionCtx.lineTo(x,yy)}motionCtx.stroke()}
-}else if(scene==='tang'||scene==='round'){
+// Moving junk silhouette with a gently rocking mast and trailing wake.
+const shipX=((ts*.018)%(w+220))-110,shipY=h*.70+Math.sin(ts*.0011)*3,scale=Math.max(.65,Math.min(1.15,w/850));
+motionCtx.save();motionCtx.translate(shipX,shipY);motionCtx.scale(scale,scale);
+motionCtx.fillStyle='rgba(12,31,42,.78)';
+motionCtx.beginPath();motionCtx.moveTo(-58,0);motionCtx.quadraticCurveTo(-18,13,42,3);motionCtx.lineTo(58,-4);motionCtx.lineTo(42,10);motionCtx.quadraticCurveTo(-15,19,-58,0);motionCtx.fill();
+motionCtx.strokeStyle='rgba(22,39,44,.9)';motionCtx.lineWidth=2;motionCtx.beginPath();motionCtx.moveTo(-7,0);motionCtx.lineTo(-7,-62+Math.sin(ts*.0014)*2);motionCtx.stroke();
+motionCtx.fillStyle='rgba(235,218,183,.66)';
+motionCtx.beginPath();motionCtx.moveTo(-5,-57);motionCtx.quadraticCurveTo(-39,-47,-35,-15);motionCtx.lineTo(-5,-19);motionCtx.closePath();motionCtx.fill();
+motionCtx.beginPath();motionCtx.moveTo(-2,-53);motionCtx.quadraticCurveTo(28,-42,25,-17);motionCtx.lineTo(-2,-19);motionCtx.closePath();motionCtx.fill();
+motionCtx.strokeStyle='rgba(220,231,228,.42)';motionCtx.lineWidth=1;
+for(let i=0;i<4;i++){motionCtx.beginPath();motionCtx.moveTo(-78-i*5,14+i*3);motionCtx.quadraticCurveTo(-40-i*5,10+i*3,2-i*4,15+i*3);motionCtx.stroke()}
+motionCtx.restore();
+motionCtx.strokeStyle='rgba(164,210,220,.22)';motionCtx.lineWidth=1;
+for(let row=0;row<5;row++){const y=h*(.70+row*.055);motionCtx.beginPath();for(let x=0;x<=w;x+=8){const yy=y+Math.sin(x*.018+ts*.00065+row)*3;x===0?motionCtx.moveTo(x,yy):motionCtx.lineTo(x,yy)}motionCtx.stroke()}
+}else if(scene==='tang'){
+// Small caravan silhouettes crossing the lower city plane.
+const caravanX=((ts*.012)%(w+260))-130,ground=h*.81;
+motionCtx.save();motionCtx.translate(caravanX,ground);motionCtx.fillStyle='rgba(19,31,34,.76)';
+for(let i=0;i<3;i++){const x=i*48,step=Math.sin(ts*.006+i)*3;
+motionCtx.beginPath();motionCtx.ellipse(x,0,17,8,0,0,Math.PI*2);motionCtx.fill();
+motionCtx.beginPath();motionCtx.arc(x+10,-15+step,5,0,Math.PI*2);motionCtx.fill();
+motionCtx.strokeStyle='rgba(19,31,34,.8)';motionCtx.lineWidth=2;
+motionCtx.beginPath();motionCtx.moveTo(x-7,4);motionCtx.lineTo(x-10,13+step);motionCtx.moveTo(x+5,4);motionCtx.lineTo(x+8,13-step);motionCtx.stroke();
+motionCtx.beginPath();motionCtx.moveTo(x+9,-20+step);motionCtx.lineTo(x+17,-10+step);motionCtx.stroke();
+}
+motionCtx.restore();
 motionCtx.fillStyle='rgba(255,190,112,.36)';
 for(let i=0;i<4;i++){const x=w*(.17+i*.19),y=h*(.76+(i%2)*.045);motionCtx.beginPath();motionCtx.arc(x,y,2+Math.sin(ts*.001+i)*.8,0,Math.PI*2);motionCtx.fill()}
+}else if(scene==='oasis'||scene==='round'){
+motionCtx.fillStyle='rgba(255,210,151,.13)';
+for(let i=0;i<5;i++){const x=((ts*(.006+i*.001))%(w+40))-20,y=h*(.72+i*.045);motionCtx.beginPath();motionCtx.ellipse(x,y,16+i*3,2,0,0,Math.PI*2);motionCtx.fill()}
 }
 for(const p of motionParticles){
 p.x+=p.vx*dt*.045;p.y+=p.vy*dt*.045;
