@@ -3,6 +3,7 @@ import {readFileSync} from 'node:fs';
 const history=JSON.parse(readFileSync('data/history.json','utf8'));
 const geo=JSON.parse(readFileSync('data/places.json','utf8'));
 const routes=JSON.parse(readFileSync('data/routes.json','utf8'));
+const cities=JSON.parse(readFileSync('data/cities.json','utf8'));
 const errors=[],ids=new Set(),placeIds=new Set();
 for(const p of geo.places){
  if(placeIds.has(p.id))errors.push('Duplicate place: '+p.id);
@@ -20,6 +21,15 @@ for(const e of history.events){
 for(const p of history.periods){
  if(!Number.isInteger(p.startYear)||!Number.isInteger(p.endYear)||p.endYear<=p.startYear)errors.push('Invalid period: '+p.id);
 }
+const cityIds=new Set();
+for(const city of cities.cities){
+ if(cityIds.has(city.id))errors.push('Duplicate city scene: '+city.id);
+ cityIds.add(city.id);
+ if(!placeIds.has(city.id))errors.push('Unknown scene place: '+city.id);
+ if(!['tang','oasis','round','harbor'].includes(city.scene))errors.push('Unknown scene style: '+city.id);
+ for(const field of ['title','description','fact','uncertainty','tag','era'])if(!city[field])errors.push('Missing '+field+' for '+city.id);
+ if(!Array.isArray(city.sources)||!city.sources.length||city.sources.some(url=>!url.startsWith('https://')))errors.push('Invalid scene sources: '+city.id);
+}
 const networkIds=new Set();
 for(const n of routes.networks){
  if(networkIds.has(n.id))errors.push('Duplicate network: '+n.id);
@@ -33,4 +43,4 @@ for(const n of routes.networks){
  for(const chapter of n.chapters||[])if(!nodes.has(chapter.placeId)||!chapter.title||!chapter.body||!chapter.yearNote)errors.push('Invalid chapter in '+n.id);
 }
 if(errors.length){console.error(errors.join('\n'));process.exitCode=1}
-else console.log('Validated '+history.events.length+' events, '+history.periods.length+' periods and '+geo.places.length+' places and '+routes.networks.length+' networks.');
+else console.log('Validated '+history.events.length+' events, '+history.periods.length+' periods and '+geo.places.length+' places and '+routes.networks.length+' networks and '+cities.cities.length+' illustrated cities.');
