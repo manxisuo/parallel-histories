@@ -110,6 +110,8 @@ events=data.events.map(e=>({id:e.id,y:e.year,t:e.title,c:e.civilization,trackId:
 periods=data.periods.map(p=>({a:p.startYear,b:p.endYear,t:p.name,c:p.civilization,precision:p.precision||'approximate',sources:p.sources||[{url:p.sourceUrl,kind:'editorial-reference'}],note:p.note||'',trackId:p.trackId|| (p.civilization==='cn'?'china':'global')}));
 renderTrackPicker();updateTrackGeometry();
 lastCompareKey='';update();
+const incomingEvent=new URLSearchParams(location.search).get('event');
+if(incomingEvent){const match=events.find(e=>e.id===incomingEvent);if(match){center=match.y;update();show(match)}}
 }
 function renderTrackPicker(){
 const root=document.getElementById('trackToggles');root.replaceChildren();
