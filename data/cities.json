@@ -45,7 +45,15 @@
           "y": 75,
           "source": "https://www.britannica.com/place/Xian-China"
         }
-      ]
+      ],
+      "motion": {
+        "profile": "caravan",
+        "label": "商队",
+        "hotspotId": "caravan",
+        "pathY": 0.81,
+        "speed": 0.012,
+        "hitRadius": 88
+      }
     },
     {
       "id": "samarkand",
@@ -122,7 +130,15 @@
           "y": 76,
           "source": "https://www.britannica.com/place/Malacca-Malaysia"
         }
-      ]
+      ],
+      "motion": {
+        "profile": "sailing-vessel",
+        "label": "帆船",
+        "hotspotId": "monsoon",
+        "pathY": 0.7,
+        "speed": 0.018,
+        "hitRadius": 76
+      }
     }
   ]
 }
