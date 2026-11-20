@@ -2,6 +2,7 @@
 import {readFileSync} from 'node:fs';
 const history=JSON.parse(readFileSync('data/history.json','utf8'));
 const geo=JSON.parse(readFileSync('data/places.json','utf8'));
+const routes=JSON.parse(readFileSync('data/routes.json','utf8'));
 const errors=[],ids=new Set(),placeIds=new Set();
 for(const p of geo.places){
  if(placeIds.has(p.id))errors.push('Duplicate place: '+p.id);
@@ -19,5 +20,15 @@ for(const e of history.events){
 for(const p of history.periods){
  if(!Number.isInteger(p.startYear)||!Number.isInteger(p.endYear)||p.endYear<=p.startYear)errors.push('Invalid period: '+p.id);
 }
+const networkIds=new Set();
+for(const n of routes.networks){
+ if(networkIds.has(n.id))errors.push('Duplicate network: '+n.id);
+ networkIds.add(n.id);
+ if(!Number.isInteger(n.startYear)||!Number.isInteger(n.endYear)||n.startYear>n.endYear||n.focusYear<n.startYear||n.focusYear>n.endYear)errors.push('Invalid network years: '+n.id);
+ if(!Array.isArray(n.sourceUrls)||!n.sourceUrls.length||n.sourceUrls.some(url=>!url.startsWith('https://')))errors.push('Invalid network sources: '+n.id);
+ const nodes=new Set();
+ for(const node of n.nodes){if(!placeIds.has(node.placeId))errors.push('Unknown route place: '+node.placeId);nodes.add(node.placeId)}
+ for(const link of n.links)if(!nodes.has(link.from)||!nodes.has(link.to))errors.push('Invalid network link: '+n.id);
+}
 if(errors.length){console.error(errors.join('\n'));process.exitCode=1}
-else console.log('Validated '+history.events.length+' events, '+history.periods.length+' periods and '+geo.places.length+' places.');
+else console.log('Validated '+history.events.length+' events, '+history.periods.length+' periods and '+geo.places.length+' places and '+routes.networks.length+' networks.');
