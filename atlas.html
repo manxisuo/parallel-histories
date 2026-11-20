@@ -5,10 +5,10 @@
 .mapbox:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 45%,#08152388 100%)}
 .mapbox .legend{z-index:2}
 .controls input{cursor:pointer}
-</style></head><body><header><a class="brand" href="./">时空对望</a><nav class="nav"><a href="./">时间长河</a><a href="./museum.html">历史展厅</a></nav></header><section class="hero"><div class="eyebrow">THE HISTORICAL ATLAS</div><h1>历史地理 · 世界的另一面</h1><p>在真实经纬度坐标上，寻找不同时代的重要城市与事件地点。</p></section><main class="shell"><div class="controls"><span class="year" id="yearLabel">公元 750 年</span><input id="yearSlider" aria-label="历史年份" type="range" min="-1599" max="1949" step="1" value="750"><button id="minus">－ 缩小</button><button id="plus">＋ 放大</button><button id="reset">重置视图</button></div><div class="controls"><label for="era" class="status">历史切片</label><select id="era"><option value="-220">前 221 年 · 秦与罗马</option><option value="750" selected>750 年 · 盛唐与西亚</option><option value="1405">1405 年 · 郑和远航</option><option value="1776">1776 年 · 清与大西洋世界</option></select><span class="status" id="status">加载地理数据中…</span></div><div class="mapbox" id="mapbox"><canvas id="map" role="img" aria-label="历史城市地理地图，可拖动和缩放"></canvas><div class="legend"><b>●</b> 金色：中国相关地点　<span style="color:#86c9e5">●</span> 青色：世界其他地点<br>点击城市查看说明 · 滚轮／双指缩放 · 拖动平移</div></div><section class="detail"><article class="panel"><small>SELECTED LOCATION · 选中地点</small><h2 id="placeTitle">选择地图上的城市</h2><p id="placeDesc">点击地图上的标记，查看城市及其历史背景。</p></article><article class="panel"><small>CONTEXT · 同期历史事件</small><h2 id="eventTitle">公元 750 年</h2><p id="eventDesc">这里显示所选年代附近的历史事件及参考来源。</p></article></section><p class="note">历史严谨性说明：地图使用墨卡托投影定位现代城市近似坐标，不代表历史城址精确边界。历史时期的疆域和道路尚未绘制。底图优先加载现代陆地 GeoJSON（第三方 CDN）；网络不可用时退化为经纬网。它不是历史地形、国界或疆域图。城市筛选仅表示与所选事件的资料关联，不表示该时期城市是否存在、是否属于某个政权。所有历史路线需要独立的史料依据。</p></main><script>
+</style></head><body><header><a class="brand" href="./">时空对望</a><nav class="nav"><a id="timelineBack" href="./">返回时间轴</a><a href="./museum.html">历史展厅</a></nav></header><section class="hero"><div class="eyebrow">THE HISTORICAL ATLAS</div><h1>历史地理 · 世界的另一面</h1><p>在真实经纬度坐标上，寻找不同时代的重要城市与事件地点。</p></section><main class="shell"><div class="controls"><span class="year" id="yearLabel">公元 750 年</span><input id="yearSlider" aria-label="历史年份" type="range" min="-1599" max="1949" step="1" value="750"><button id="minus">－ 缩小</button><button id="plus">＋ 放大</button><button id="reset">重置视图</button></div><div class="controls"><label for="era" class="status">历史切片</label><select id="era"><option value="-220">前 221 年 · 秦与罗马</option><option value="750" selected>750 年 · 盛唐与西亚</option><option value="1405">1405 年 · 郑和远航</option><option value="1776">1776 年 · 清与大西洋世界</option></select><span class="status" id="status">加载地理数据中…</span></div><div class="mapbox" id="mapbox"><canvas id="map" role="img" aria-label="历史城市地理地图，可拖动和缩放"></canvas><div class="legend"><b>●</b> 金色：中国相关地点　<span style="color:#86c9e5">●</span> 青色：世界其他地点<br>点击城市查看说明 · 滚轮／双指缩放 · 拖动平移</div></div><section class="detail"><article class="panel"><small>SELECTED LOCATION · 选中地点</small><h2 id="placeTitle">选择地图上的城市</h2><p id="placeDesc">点击地图上的标记，查看城市及其历史背景。</p></article><article class="panel"><small>CONTEXT · 同期历史事件</small><h2 id="eventTitle">公元 750 年</h2><p id="eventDesc">这里显示所选年代附近的历史事件及参考来源。</p></article></section><p class="note">历史严谨性说明：地图使用墨卡托投影定位现代城市近似坐标，不代表历史城址精确边界。历史时期的疆域和道路尚未绘制。底图优先加载现代陆地 GeoJSON（第三方 CDN）；网络不可用时退化为经纬网。它不是历史地形、国界或疆域图。城市筛选仅表示与所选事件的资料关联，不表示该时期城市是否存在、是否属于某个政权。所有历史路线需要独立的史料依据。</p></main><script>
 const canvas=document.getElementById('map'),ctx=canvas.getContext('2d'),box=document.getElementById('mapbox');
 let landFeatures=[],landReady=false,places=[],events=[],year=750,zoom=1,offsetX=0,offsetY=0,drag=false,moved=false,lastX=0,lastY=0,pinch=0;
-const label=document.getElementById('yearLabel'),slider=document.getElementById('yearSlider'),status=document.getElementById('status');
+const label=document.getElementById('yearLabel'),slider=document.getElementById('yearSlider'),status=document.getElementById('status');const timelineBack=document.getElementById('timelineBack');
 const fmt=y=>y<=0?'公元前 '+(1-y)+' 年':'公元 '+y+' 年';
 const rad=Math.PI/180;
 function mercator(lat){return Math.log(Math.tan(Math.PI/4+Math.max(-80,Math.min(80,lat))*rad/2))}
@@ -26,7 +26,8 @@ for(const polygon of polygons){
 ctx.beginPath();
 for(const ring of polygon){
 let started=false,lastX=null;
-for(const coord of ring){
+const stride=Math.max(1,Math.floor(ring.length/700));
+for(let i=0;i<ring.length;i+=stride){const coord=ring[i];
 const lon=coord[0],lat=coord[1];
 if(Math.abs(lat)>80)continue;
 const q=project({lon,lat});
@@ -50,7 +51,7 @@ if(!active.length){ctx.textAlign='center';ctx.fillStyle='#9fb3c3';ctx.font='13px
 }
 function resize(){const r=box.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(r.width*d);canvas.height=Math.round(canvas.getBoundingClientRect().height*d);ctx.setTransform(d,0,0,d,0,0);draw()}
 new ResizeObserver(resize).observe(box);
-function update(){year=Number(slider.value);label.textContent=fmt(year);const near=events.filter(e=>Math.abs(e.year-year)<=35).sort((a,b)=>Math.abs(a.year-year)-Math.abs(b.year-year)).slice(0,5);document.getElementById('eventTitle').textContent=fmt(year);document.getElementById('eventDesc').textContent=near.length?near.map(e=>fmt(e.year)+' · '+e.title).join('　/　'):'此时间窗口尚未收录附近事件。';status.textContent='同期窗口 ±35 年 · '+activePlaces().length+' 个地点 · '+(landReady?'陆地底图已加载':'经纬网底图');history.replaceState(null,'','?year='+year);draw()}
+function update(){year=Number(slider.value);label.textContent=fmt(year);timelineBack.href='./?year='+year;const near=events.filter(e=>Math.abs(e.year-year)<=35).sort((a,b)=>Math.abs(a.year-year)-Math.abs(b.year-year)).slice(0,5);document.getElementById('eventTitle').textContent=fmt(year);document.getElementById('eventDesc').textContent=near.length?near.map(e=>fmt(e.year)+' · '+e.title).join('　/　'):'此时间窗口尚未收录附近事件。';status.textContent='同期窗口 ±35 年 · '+activePlaces().length+' 个地点 · '+(landReady?'陆地底图已加载':'经纬网底图');history.replaceState(null,'','?year='+year);draw()}
 function zoomAt(f,x=canvas.clientWidth/2,y=canvas.clientHeight/2){const p=unproject(x,y);zoom=Math.max(.7,Math.min(8,zoom*f));const next=project(p);offsetX+=x-next.x;offsetY+=y-next.y;draw()}
 canvas.addEventListener('wheel',e=>{e.preventDefault();const r=canvas.getBoundingClientRect();zoomAt(Math.exp(-e.deltaY*.001),e.clientX-r.left,e.clientY-r.top)},{passive:false});
 canvas.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'&&e.isPrimary===false)return;drag=true;moved=false;lastX=e.clientX;lastY=e.clientY;canvas.setPointerCapture(e.pointerId)});
@@ -66,7 +67,7 @@ const response=await fetch(url,{cache:'force-cache'});
 if(!response.ok)throw Error('base map HTTP '+response.status);
 const data=await response.json();
 if(data.type!=='FeatureCollection'||!Array.isArray(data.features))throw Error('invalid land GeoJSON');
-landFeatures=data.features;landReady=true;update();
+landFeatures=data.features.map(f=>({geometry:f.geometry}));landReady=true;update();
 }catch(e){console.warn('Optional basemap unavailable; using graticule fallback',e);landReady=false;update()}
 }
 (async()=>{try{const [pr,hr]=await Promise.all([fetch('./data/places.json'),fetch('./data/history.json')]);if(!pr.ok||!hr.ok)throw Error('HTTP error');const p=await pr.json(),h=await hr.json();places=p.places;events=h.events;const y=Number(new URLSearchParams(location.search).get('year'));if(Number.isFinite(y)&&y>=-1599&&y<=1949&&new URLSearchParams(location.search).has('year'))slider.value=y;update();resize();loadLand()}catch(e){status.textContent='数据加载失败，请刷新页面';console.error(e)}})();
