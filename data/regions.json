@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "note": "轨道是编辑用途的地理分组，不等同于单一文明、政治边界或历史因果关系。未收录事件的轨道并不意味着当地没有历史。跨区域事件采用主要叙事视角的轨道；更细的多地点映射留待后续扩展。",
+  "tracks": [
+    {
+      "id": "china",
+      "label": "中国",
+      "color": "#d9b67c",
+      "defaultVisible": true
+    },
+    {
+      "id": "east-asia",
+      "label": "东亚其他地区",
+      "color": "#89c7b4",
+      "defaultVisible": false
+    },
+    {
+      "id": "central-asia",
+      "label": "中亚",
+      "color": "#a3b8dd",
+      "defaultVisible": true
+    },
+    {
+      "id": "west-asia",
+      "label": "西亚",
+      "color": "#e3a775",
+      "defaultVisible": true
+    },
+    {
+      "id": "south-asia",
+      "label": "南亚",
+      "color": "#bcadcf",
+      "defaultVisible": false
+    },
+    {
+      "id": "europe",
+      "label": "欧洲",
+      "color": "#7dc5dc",
+      "defaultVisible": true
+    },
+    {
+      "id": "africa",
+      "label": "非洲",
+      "color": "#b7cf88",
+      "defaultVisible": false
+    },
+    {
+      "id": "americas",
+      "label": "美洲",
+      "color": "#e1a3b8",
+      "defaultVisible": false
+    },
+    {
+      "id": "global",
+      "label": "跨区域 / 全球",
+      "color": "#c8c8c0",
+      "defaultVisible": true
+    }
+  ]
+}
