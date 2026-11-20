@@ -90,7 +90,7 @@ header{padding:11px 14px}
 .hero h1{font-size:23px;margin-top:6px}
 .hero p{text-align:left;font-size:11px;margin-top:5px}
 }
-</style></head><body><header><div class="brand">时空对望<small>PARALLEL HISTORIES</small></div><div class="nav"><button id="home">时间长河</button><button id="museumNav">历史展厅</button><button id="atlasNav">历史地图</button><button id="random">随机穿越</button></div></header><section class="hero" aria-labelledby="homeHeroTitle"><div class="hero-inline"><div><div class="eyebrow">PARALLEL HISTORIES · CIVILIZATIONS IN TIME</div><h1 id="homeHeroTitle">同一时代，世界的另一面。</h1></div><p>拖动时间轴，对望不同文明的历史。</p></div></section><main class="shell"><section class="panel"><div class="panelhead"><div><div class="hint">CURRENT TIME · 当前时间</div><div class="date" id="date"></div></div><div class="hint">公元前 1600 年 — 公元 1949 年</div></div><div class="toolbar"><button id="minus" aria-label="缩小">− 缩小</button><button id="plus" aria-label="放大">＋ 放大</button><button id="back">◀ 前进百年</button><button id="forward">后退百年 ▶</button><input id="search" placeholder="搜索历史事件，如：唐朝、罗马" aria-label="搜索历史事件"><button id="find">搜索</button></div><div class="track-picker" aria-label="选择文明地区轨道"><div class="track-picker-title"><span>文明地区轨道 · REGIONAL TRACKS</span><div><button type="button" id="tracksDefault">推荐组合</button><button type="button" id="tracksAll">显示全部</button></div></div><div id="trackToggles" class="track-toggles"></div><div id="trackHint" class="track-hint">按地区选择希望对照的历史轨道。</div></div><div class="canvaswrap" id="wrap"><canvas id="timeline" aria-label="按地区分组的多轨历史时间轴"></canvas></div><div class="bottom"><span>按颜色区分地理地区 · 可自由选择显示轨道</span><span>拖动平移 · 滚轮或双指缩放 · 点击节点</span></div></section><section class="era-compare" aria-labelledby="eraCompareTitle">
+.event-location-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:15px;padding-top:12px;border-top:1px solid #ffffff20}.event-location-actions p{flex-basis:100%;font-size:11px;color:#a4b5c2;line-height:1.65;margin:0}.event-location-actions .story-link{padding:9px 14px;font-size:11px}</style></head><body><header><div class="brand">时空对望<small>PARALLEL HISTORIES</small></div><div class="nav"><button id="home">时间长河</button><button id="museumNav">历史展厅</button><button id="atlasNav">历史地图</button><button id="random">随机穿越</button></div></header><section class="hero" aria-labelledby="homeHeroTitle"><div class="hero-inline"><div><div class="eyebrow">PARALLEL HISTORIES · CIVILIZATIONS IN TIME</div><h1 id="homeHeroTitle">同一时代，世界的另一面。</h1></div><p>拖动时间轴，对望不同文明的历史。</p></div></section><main class="shell"><section class="panel"><div class="panelhead"><div><div class="hint">CURRENT TIME · 当前时间</div><div class="date" id="date"></div></div><div class="hint">公元前 1600 年 — 公元 1949 年</div></div><div class="toolbar"><button id="minus" aria-label="缩小">− 缩小</button><button id="plus" aria-label="放大">＋ 放大</button><button id="back">◀ 前进百年</button><button id="forward">后退百年 ▶</button><input id="search" placeholder="搜索历史事件，如：唐朝、罗马" aria-label="搜索历史事件"><button id="find">搜索</button></div><div class="track-picker" aria-label="选择文明地区轨道"><div class="track-picker-title"><span>文明地区轨道 · REGIONAL TRACKS</span><div><button type="button" id="tracksDefault">推荐组合</button><button type="button" id="tracksAll">显示全部</button></div></div><div id="trackToggles" class="track-toggles"></div><div id="trackHint" class="track-hint">按地区选择希望对照的历史轨道。</div></div><div class="canvaswrap" id="wrap"><canvas id="timeline" aria-label="按地区分组的多轨历史时间轴"></canvas></div><div class="bottom"><span>按颜色区分地理地区 · 可自由选择显示轨道</span><span>拖动平移 · 滚轮或双指缩放 · 点击节点</span></div></section><section class="era-compare" aria-labelledby="eraCompareTitle">
 <div class="era-compare-head"><div><div class="compare-kicker">SAME ERA · DIFFERENT PLACES</div><h2 id="eraCompareTitle">同一时代，世界正在发生什么？</h2><p>以当前时间轴中心年份为基准，查看所选地区在观察窗口内已收录的历史事件。</p></div>
 <div class="compare-filters"><label class="window-picker">观察窗口 <select id="compareWindow" aria-label="选择历史对照时间窗口"><option value="5">前后 5 年</option><option value="10">前后 10 年</option><option value="25" selected>前后 25 年</option><option value="50">前后 50 年</option><option value="100">前后 100 年</option></select></label><label class="window-picker">事件类型 <select id="compareCategory" aria-label="筛选历史事件类型"><option value="all">全部类型</option><option>政权与制度</option><option>政治与制度</option><option>战争与冲突</option><option>思想与文化</option><option>宗教与思想</option><option>科技与知识</option><option>航海与交流</option></select></label></div></div>
 <div class="compare-current"><span>当前观察时点</span><strong id="compareYear">公元 750 年</strong><small id="compareRange">公元 725 年 — 公元 775 年</small></div>
@@ -106,7 +106,7 @@ const [data,registry]=await Promise.all([historyResponse.json(),tracksResponse.j
 if(!Array.isArray(data.events)||!Array.isArray(data.periods)||!Array.isArray(registry.tracks))throw Error('历史数据格式错误');
 tracks=registry.tracks;
 visibleTracks=new Set(tracks.filter(t=>t.defaultVisible).map(t=>t.id));
-events=data.events.map(e=>({y:e.year,t:e.title,c:e.civilization,trackId:e.trackId|| (e.civilization==='cn'?'china':'global'),d:e.summary,s:e.sourceUrl,storyId:e.storyId,placeIds:e.placeIds||[],sources:e.sources||[{url:e.sourceUrl,kind:'editorial-reference'}],region:e.region|| (e.civilization==='cn'?'东亚 · 中国':'世界其他地区'),category:e.category||'历史事件',precision:e.precision||'approximate'}));
+events=data.events.map(e=>({id:e.id,y:e.year,t:e.title,c:e.civilization,trackId:e.trackId|| (e.civilization==='cn'?'china':'global'),d:e.summary,s:e.sourceUrl,storyId:e.storyId,placeIds:e.placeIds||[],sources:e.sources||[{url:e.sourceUrl,kind:'editorial-reference'}],region:e.region|| (e.civilization==='cn'?'东亚 · 中国':'世界其他地区'),category:e.category||'历史事件',precision:e.precision||'approximate'}));
 periods=data.periods.map(p=>({a:p.startYear,b:p.endYear,t:p.name,c:p.civilization,precision:p.precision||'approximate',sources:p.sources||[{url:p.sourceUrl,kind:'editorial-reference'}],note:p.note||'',trackId:p.trackId|| (p.civilization==='cn'?'china':'global')}));
 renderTrackPicker();updateTrackGeometry();
 lastCompareKey='';update();
@@ -247,6 +247,23 @@ const type=document.createElement('span');type.textContent=source.kind==='instit
 }
 const note=document.createElement('p');note.textContent='提示：存在约略年代、文献差异及持续性历史现象时，图中年份是观察坐标，不代表历史发展只发生在该年。';root.append(note);
 }
+function atlasEventUrl(e,placeId=''){
+const args=new URLSearchParams({year:String(e.y),event:e.id});
+if(placeId)args.set('place',placeId);
+return './atlas.html?'+args.toString();
+}
+function addLinkedMapActions(root,e){
+const ids=(e.placeIds||[]).filter(Boolean);
+const geo=document.createElement('div');geo.className='event-location-actions';
+const title=document.createElement('p');title.textContent=ids.length?'关联地点（现代近似坐标，不等于事件的精确发生位置）':'此事件未收录可核实的地点坐标，只能按历史地区理解，不会在地图上虚构一个标记。';geo.append(title);
+if(ids.length){
+const all=document.createElement('a');all.className='story-link';all.href=atlasEventUrl(e);all.textContent='在地图查看全部关联地点 →';geo.append(all);
+for(let i=0;i<ids.length;i++){const a=document.createElement('a');a.className='story-link';a.href=atlasEventUrl(e,ids[i]);a.textContent='定位关联地点 '+(i+1)+' →';geo.append(a)}
+}else{
+const link=document.createElement('a');link.className='story-link';link.href=atlasEventUrl(e);link.textContent='查看年代地图（不定位） →';geo.append(link);
+}
+root.append(geo);
+}
 function show(e){
 document.getElementById('mtag').textContent=(e.c==='cn'?'中国历史':'世界历史')+' · '+e.region+' · '+fmt(e.y);
 document.getElementById('mtitle').textContent=e.t;
@@ -254,7 +271,7 @@ document.getElementById('mdesc').textContent=e.d;
 renderHistoricalSources(e.sources);
 const root=document.getElementById('storyAction');root.replaceChildren();
 if(storyFor(e)){const link=document.createElement('a');link.className='story-link';link.href='./museum.html?story='+encodeURIComponent(storyFor(e))+'&from='+encodeURIComponent(Math.round(center));link.textContent='进入沉浸式专题展厅 →';root.append(link)}
-const div=document.createElement('div');div.style.marginTop='12px';const a=document.createElement('a');a.className='story-link';a.href='./atlas.html?year='+e.y;a.textContent='在历史地图中查看 →';div.append(a);root.append(div);
+addLinkedMapActions(root,e);
 document.getElementById('overlay').classList.add('open');
 }
 function showPeriod(p){
