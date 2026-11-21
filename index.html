@@ -90,7 +90,32 @@ header{padding:11px 14px}
 .hero h1{font-size:23px;margin-top:6px}
 .hero p{text-align:left;font-size:11px;margin-top:5px}
 }
-.event-location-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:15px;padding-top:12px;border-top:1px solid #ffffff20}.event-location-actions p{flex-basis:100%;font-size:11px;color:#a4b5c2;line-height:1.65;margin:0}.event-location-actions .story-link{padding:9px 14px;font-size:11px}</style></head><body><header><div class="brand">时空对望<small>PARALLEL HISTORIES</small></div><div class="nav"><button id="home">时间长河</button><button id="museumNav">历史展厅</button><button id="atlasNav">历史地图</button><button id="random">随机穿越</button></div></header><section class="hero" aria-labelledby="homeHeroTitle"><div class="hero-inline"><div><div class="eyebrow">PARALLEL HISTORIES · CIVILIZATIONS IN TIME</div><h1 id="homeHeroTitle">同一时代，世界的另一面。</h1></div><p>拖动时间轴，对望不同文明的历史。</p></div></section><main class="shell"><section class="panel"><div class="panelhead"><div><div class="hint">CURRENT TIME · 当前时间</div><div class="date" id="date"></div></div><div class="hint">公元前 1600 年 — 公元 1949 年</div></div><div class="toolbar"><button id="minus" aria-label="缩小">− 缩小</button><button id="plus" aria-label="放大">＋ 放大</button><button id="back">◀ 前进百年</button><button id="forward">后退百年 ▶</button><input id="search" placeholder="搜索历史事件，如：唐朝、罗马" aria-label="搜索历史事件"><button id="find">搜索</button></div><div class="track-picker" aria-label="选择文明地区轨道"><div class="track-picker-title"><span>文明地区轨道 · REGIONAL TRACKS</span><div><button type="button" id="tracksDefault">推荐组合</button><button type="button" id="tracksAll">显示全部</button></div></div><div id="trackToggles" class="track-toggles"></div><div id="trackHint" class="track-hint">按地区选择希望对照的历史轨道。</div></div><div class="canvaswrap" id="wrap"><canvas id="timeline" aria-label="按地区分组的多轨历史时间轴"></canvas></div><div class="bottom"><span>按颜色区分地理地区 · 可自由选择显示轨道</span><span>拖动平移 · 滚轮或双指缩放 · 点击节点</span></div></section><section class="era-compare" aria-labelledby="eraCompareTitle">
+.event-location-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:15px;padding-top:12px;border-top:1px solid #ffffff20}.event-location-actions p{flex-basis:100%;font-size:11px;color:#a4b5c2;line-height:1.65;margin:0}.event-location-actions .story-link{padding:9px 14px;font-size:11px}
+.synced-explorer{margin-top:20px;padding:clamp(16px,2.4vw,28px);background:linear-gradient(140deg,#14263a,#0c1b2b);border:1px solid #d4ae7235;border-radius:20px}
+.synced-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:17px}
+.synced-head small,.synced-detail>small{font-size:10px;letter-spacing:.18em;color:#d4ae72}
+.synced-head h2{font:clamp(22px,2.7vw,31px) 'Noto Serif SC',serif;margin:7px 0 5px;font-weight:500}
+.synced-head p{font-size:12px;line-height:1.6;color:#9fb1c0;margin:0}
+.synced-head a{font-size:11px;border:1px solid #d4ae7255;color:#e4c58f;border-radius:20px;padding:9px 13px;text-decoration:none}
+.synced-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);gap:15px}
+.synced-map{min-width:0;overflow:hidden;border:1px solid #ffffff1f;border-radius:13px;background:#081725}
+.synced-map iframe{display:block;width:100%;height:420px;border:0}
+.synced-map-bottom{display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;padding:9px 12px;font-size:10px;color:#8ea4b4}
+.synced-detail{min-width:0;border:1px solid #ffffff1c;background:#0918279c;border-radius:13px;padding:20px}
+.synced-detail h3{font:22px 'Noto Serif SC',serif;font-weight:500;color:#f1dfc1;margin:12px 0}
+.synced-detail p{color:#aebfca;font-size:12px;line-height:1.9}
+.synced-detail-links{display:flex;flex-wrap:wrap;gap:8px;padding:8px 0}
+.synced-detail-links a{font-size:11px;color:#e3c18c;border:1px solid #d4ae7245;border-radius:18px;padding:8px 10px}
+.synced-nearby{border-top:1px solid #ffffff18;margin-top:16px;padding-top:12px}
+.synced-nearby strong{display:block;font-size:11px;color:#a6bbc9;margin-bottom:8px;font-weight:500}
+.synced-nearby button{display:block;width:100%;margin:5px 0;text-align:left;border:0;border-radius:8px;padding:8px 10px;background:#ffffff07;color:#cbd8df;font-size:11px;cursor:pointer}
+.synced-nearby button:hover{background:#ffffff13}
+@media(max-width:850px){.synced-grid{grid-template-columns:1fr}.synced-map iframe{height:350px}.synced-detail{padding:16px}}
+</style></head><body><header><div class="brand">时空对望<small>PARALLEL HISTORIES</small></div><div class="nav"><button id="home">时间长河</button><button id="museumNav">历史展厅</button><button id="atlasNav">历史地图</button><button id="random">随机穿越</button></div></header><section class="hero" aria-labelledby="homeHeroTitle"><div class="hero-inline"><div><div class="eyebrow">PARALLEL HISTORIES · CIVILIZATIONS IN TIME</div><h1 id="homeHeroTitle">同一时代，世界的另一面。</h1></div><p>拖动时间轴，对望不同文明的历史。</p></div></section><main class="shell"><section class="panel"><div class="panelhead"><div><div class="hint">CURRENT TIME · 当前时间</div><div class="date" id="date"></div></div><div class="hint">公元前 1600 年 — 公元 1949 年</div></div><div class="toolbar"><button id="minus" aria-label="缩小">− 缩小</button><button id="plus" aria-label="放大">＋ 放大</button><button id="back">◀ 前进百年</button><button id="forward">后退百年 ▶</button><input id="search" placeholder="搜索历史事件，如：唐朝、罗马" aria-label="搜索历史事件"><button id="find">搜索</button></div><div class="track-picker" aria-label="选择文明地区轨道"><div class="track-picker-title"><span>文明地区轨道 · REGIONAL TRACKS</span><div><button type="button" id="tracksDefault">推荐组合</button><button type="button" id="tracksAll">显示全部</button></div></div><div id="trackToggles" class="track-toggles"></div><div id="trackHint" class="track-hint">按地区选择希望对照的历史轨道。</div></div><div class="canvaswrap" id="wrap"><canvas id="timeline" aria-label="按地区分组的多轨历史时间轴"></canvas></div><div class="bottom"><span>按颜色区分地理地区 · 可自由选择显示轨道</span><span>拖动平移 · 滚轮或双指缩放 · 点击节点</span></div></section><section class="synced-explorer" aria-labelledby="syncExplorerTitle">
+<div class="synced-head"><div><small>V5.12 · TIME × SPACE</small><h2 id="syncExplorerTitle">时空联动探索</h2><p>拖动上方时间轴，地图与历史内容同步变化；点击地理位置，探索当地已收录的历史事件。</p></div><a id="syncOpenAtlas" href="./atlas.html?year=750">进入完整历史地图 ↗</a></div>
+<div class="synced-grid"><div class="synced-map"><iframe id="syncAtlas" title="与时间轴联动的世界历史地图" src="./atlas.html?embedded=1&year=750" loading="lazy"></iframe><div class="synced-map-bottom"><span id="syncMapStatus">正在准备地图…</span><span>现代坐标参考 · 非历史疆界</span></div></div>
+<article class="synced-detail" aria-live="polite"><small id="syncDetailTag">HISTORICAL CONTEXT</small><h3 id="syncDetailTitle">选择一个年代开始探索</h3><p id="syncDetailBody">时间轴中心年份改变时，这里会呈现附近已收录的事件与关联地点。</p><div class="synced-detail-links" id="syncDetailLinks"></div><div id="syncNearby" class="synced-nearby"></div></article></div>
+</section><section class="era-compare" aria-labelledby="eraCompareTitle">
 <div class="era-compare-head"><div><div class="compare-kicker">SAME ERA · DIFFERENT PLACES</div><h2 id="eraCompareTitle">同一时代，世界正在发生什么？</h2><p>以当前时间轴中心年份为基准，查看所选地区在观察窗口内已收录的历史事件。</p></div>
 <div class="compare-filters"><label class="window-picker">观察窗口 <select id="compareWindow" aria-label="选择历史对照时间窗口"><option value="5">前后 5 年</option><option value="10">前后 10 年</option><option value="25" selected>前后 25 年</option><option value="50">前后 50 年</option><option value="100">前后 100 年</option></select></label><label class="window-picker">事件类型 <select id="compareCategory" aria-label="筛选历史事件类型"><option value="all">全部类型</option><option>政权与制度</option><option>政治与制度</option><option>战争与冲突</option><option>思想与文化</option><option>宗教与思想</option><option>科技与知识</option><option>航海与交流</option></select></label></div></div>
 <div class="compare-current"><span>当前观察时点</span><strong id="compareYear">公元 750 年</strong><small id="compareRange">公元 725 年 — 公元 775 年</small></div>
@@ -109,7 +134,7 @@ visibleTracks=new Set(tracks.filter(t=>t.defaultVisible).map(t=>t.id));
 events=data.events.map(e=>({id:e.id,y:e.year,t:e.title,c:e.civilization,trackId:e.trackId|| (e.civilization==='cn'?'china':'global'),d:e.summary,s:e.sourceUrl,storyId:e.storyId,placeIds:e.placeIds||[],sources:e.sources||[{url:e.sourceUrl,kind:'editorial-reference'}],region:e.region|| (e.civilization==='cn'?'东亚 · 中国':'世界其他地区'),category:e.category||'历史事件',precision:e.precision||'approximate'}));
 periods=data.periods.map(p=>({a:p.startYear,b:p.endYear,t:p.name,c:p.civilization,precision:p.precision||'approximate',sources:p.sources||[{url:p.sourceUrl,kind:'editorial-reference'}],note:p.note||'',trackId:p.trackId|| (p.civilization==='cn'?'china':'global')}));
 renderTrackPicker();updateTrackGeometry();
-lastCompareKey='';update();
+lastCompareKey='';update();renderSyncedDetails();
 const incomingEvent=new URLSearchParams(location.search).get('event');
 if(incomingEvent){const match=events.find(e=>e.id===incomingEvent);if(match){center=match.y;update();show(match)}}
 }
@@ -230,7 +255,66 @@ return col
 };
 root.append(makeColumn('中国 · 同期事件','china',cn),makeColumn('世界 · 按地区观察','world',world));
 }
-function update(){center=clamp(center,-1600,1949);document.getElementById('date').textContent=fmt(Math.round(center));for(const c of ['cn','world']){const sorted=events.filter(e=>e.c===c).sort((a,b)=>Math.abs(a.y-center)-Math.abs(b.y-center));const e=sorted[0];if(!e)continue;document.getElementById(c==='cn'?'ctitle':'wtitle').textContent=e.t;document.getElementById(c==='cn'?'cdesc':'wdesc').textContent=fmt(e.y)+' · '+e.d}draw();renderComparison()}
+
+let syncedSelectedEventId='',syncedSelectedPlaceId='',syncedAtlasReady=false,syncedLastYear=null;
+const syncedFrame=document.getElementById('syncAtlas');
+const safeYear=y=>Number.isInteger(y)&&y>=-1599&&y<=1949;
+function syncMap(year,eventId='',placeId=''){
+if(!syncedAtlasReady||!safeYear(year))return;
+const msg={channel:'parallel-histories-v512',type:'sync',year,eventId,placeId};
+syncedFrame.contentWindow?.postMessage(msg,location.origin);
+}
+function renderSyncedDetails(){
+const now=Math.round(center);
+const event=events.find(e=>e.id===syncedSelectedEventId);
+const tag=document.getElementById('syncDetailTag'),title=document.getElementById('syncDetailTitle'),body=document.getElementById('syncDetailBody');
+const links=document.getElementById('syncDetailLinks');links.replaceChildren();
+const near=document.getElementById('syncNearby');near.replaceChildren();
+const close=events.filter(e=>Math.abs(e.y-now)<=compareWindow).sort((a,b)=>Math.abs(a.y-now)-Math.abs(b.y-now)).slice(0,6);
+const effective=event||close[0];
+if(effective){
+tag.textContent=effective.region+' · '+fmt(effective.y);
+title.textContent=effective.t;
+body.textContent=effective.d;
+const link=document.createElement('a');link.href=atlasEventUrl(effective);link.textContent='在完整地图查看 ↗';links.append(link);
+if(effective.s){const source=document.createElement('a');source.href=effective.s;source.target='_blank';source.rel='noopener noreferrer';source.textContent='历史参考资料 ↗';links.append(source)}
+const places=(effective.placeIds||[]).filter(Boolean);
+if(places.length){const desc=document.createElement('p');desc.textContent='关联地点：'+places.length+' 处。地图中的位置使用现代近似坐标。';links.append(desc)}
+else{const desc=document.createElement('p');desc.textContent='此事件尚未关联可定位的历史地点，不能据此认定没有发生地点。';links.append(desc)}
+}else{
+tag.textContent=fmt(now);
+title.textContent='当前窗口暂无已收录事件';
+body.textContent='可以扩大观察窗口，或调整时间轴到已有历史事件的年代。';
+}
+const label=document.createElement('strong');label.textContent='附近已收录事件 · '+close.length+' 条';near.append(label);
+for(const e of close){
+const button=document.createElement('button');button.type='button';button.textContent=fmt(e.y)+' · '+e.t;
+button.addEventListener('click',()=>{center=e.y;syncedSelectedEventId=e.id;syncedSelectedPlaceId=(e.placeIds||[])[0]||'';update();syncMap(e.y,e.id,syncedSelectedPlaceId)});
+near.append(button)
+}
+document.getElementById('syncOpenAtlas').href='./atlas.html?year='+now+(event?'&event='+encodeURIComponent(event.id):'');
+}
+function syncWorkspaceYear(){
+const y=Math.round(center);
+if(y!==syncedLastYear){syncedLastYear=y;syncedSelectedEventId='';syncedSelectedPlaceId='';renderSyncedDetails();syncMap(y)}
+}
+window.addEventListener('message',event=>{
+if(event.origin!==location.origin||event.source!==syncedFrame.contentWindow)return;
+const data=event.data;if(!data||data.channel!=='parallel-histories-v512')return;
+if(data.type==='ready'){syncedAtlasReady=true;document.getElementById('syncMapStatus').textContent='地图已联动';syncMap(Math.round(center),syncedSelectedEventId,syncedSelectedPlaceId);return}
+if(data.type==='place-selected'){
+syncedSelectedPlaceId=typeof data.placeId==='string'?data.placeId:'';
+syncedSelectedEventId='';
+const local=events.filter(e=>(e.placeIds||[]).includes(syncedSelectedPlaceId)).sort((a,b)=>Math.abs(a.y-center)-Math.abs(b.y-center));
+if(local[0]){syncedSelectedEventId=local[0].id;document.getElementById('syncMapStatus').textContent='已选择地点 · '+local.length+' 条关联事件';}
+renderSyncedDetails();
+}
+if(data.type==='event-selected'){
+const e=events.find(e=>e.id===data.eventId);
+if(e){syncedSelectedEventId=e.id;syncedSelectedPlaceId=data.placeId||'';center=e.y;update();syncMap(e.y,e.id,syncedSelectedPlaceId);renderSyncedDetails()}
+}
+});
+function update(){center=clamp(center,-1600,1949);document.getElementById('date').textContent=fmt(Math.round(center));for(const c of ['cn','world']){const sorted=events.filter(e=>e.c===c).sort((a,b)=>Math.abs(a.y-center)-Math.abs(b.y-center));const e=sorted[0];if(!e)continue;document.getElementById(c==='cn'?'ctitle':'wtitle').textContent=e.t;document.getElementById(c==='cn'?'cdesc':'wdesc').textContent=fmt(e.y)+' · '+e.d}draw();renderComparison();syncWorkspaceYear()}
 function zoom(f,x=canvas.clientWidth/2){const anchor=year(x);scale=clamp(scale*f,.065,6);center=anchor-(x-canvas.clientWidth/2)/scale;update()}
 wrap.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'&&touches>0)return;drag=true;moved=false;lastX=e.clientX;wrap.setPointerCapture(e.pointerId)});wrap.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-lastX;if(Math.abs(dx)>2)moved=true;center-=dx/scale;lastX=e.clientX;update()});wrap.addEventListener('pointerup',e=>{drag=false;if(moved)return;const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,target=year(x);const row=trackRows.find(tr=>y>=tr.py-9&&y<=tr.py+88);if(!row)return;const candidates=events.filter(ev=>ev.trackId===row.id).sort((a,b)=>Math.abs(a.y-target)-Math.abs(b.y-target));if(candidates.length&&Math.abs(pos(candidates[0].y)-x)<24){show(candidates[0]);return}
 const match=periods.filter(p=>p.trackId===row.id&&p.a<=target&&p.b>=target).sort((a,b)=>(a.b-a.a)-(b.b-b.a))[0];
@@ -267,6 +351,7 @@ const link=document.createElement('a');link.className='story-link';link.href=atl
 root.append(geo);
 }
 function show(e){
+syncedSelectedEventId=e.id;syncedSelectedPlaceId=(e.placeIds||[])[0]||'';renderSyncedDetails();syncMap(Math.round(center),e.id,syncedSelectedPlaceId);
 document.getElementById('mtag').textContent=(e.c==='cn'?'中国历史':'世界历史')+' · '+e.region+' · '+fmt(e.y);
 document.getElementById('mtitle').textContent=e.t;
 document.getElementById('mdesc').textContent=e.d;
@@ -287,5 +372,5 @@ document.getElementById('overlay').classList.add('open');
 }
 document.getElementById('copen').onclick=()=>show(events.filter(e=>e.c==='cn').sort((a,b)=>Math.abs(a.y-center)-Math.abs(b.y-center))[0]);
 document.getElementById('wopen').onclick=()=>show(events.filter(e=>e.c==='world').sort((a,b)=>Math.abs(a.y-center)-Math.abs(b.y-center))[0]);
-document.getElementById('close').onclick=()=>document.getElementById('overlay').classList.remove('open');document.getElementById('overlay').onclick=e=>{if(e.target.id==='overlay')e.target.classList.remove('open')};document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('overlay').classList.remove('open');if(e.target.tagName==='INPUT')return;if(e.key==='ArrowLeft'){center-=30;update()}if(e.key==='ArrowRight'){center+=30;update()}if(e.key==='+')zoom(1.4);if(e.key==='-')zoom(1/1.4)});document.getElementById('compareWindow').addEventListener('change',e=>{compareWindow=Number(e.target.value)||25;lastCompareKey='';renderComparison()});document.getElementById('compareCategory').addEventListener('change',()=>{lastCompareKey='';renderComparison()});document.getElementById('plus').onclick=()=>zoom(1.5);document.getElementById('minus').onclick=()=>zoom(1/1.5);document.getElementById('back').onclick=()=>{center-=100;update()};document.getElementById('forward').onclick=()=>{center+=100;update()};document.getElementById('atlasNav').onclick=()=>{location.href='./atlas.html?year='+Math.round(center)};document.getElementById('museumNav').onclick=()=>{location.href='./museum.html?from='+Math.round(center)};document.getElementById('home').onclick=()=>{center=750;scale=.23;update()};document.getElementById('random').onclick=()=>{if(!events.length)return;let e=events[Math.floor(Math.random()*events.length)];center=e.y;scale=1;update();show(e)};function search(){let q=document.getElementById('search').value.trim();if(!q)return;let e=events.find(x=>x.t.includes(q)||x.d.includes(q));if(e){center=e.y;scale=1;update();show(e)}else alert('暂未收录该事件，后续会持续扩充。')}document.getElementById('find').onclick=search;document.getElementById('search').addEventListener('keydown',e=>{if(e.key==='Enter')search()});const incoming=new URLSearchParams(location.search).get("year");if(incoming!==null&&Number.isFinite(Number(incoming)))center=clamp(Number(incoming),-1600,1949);update();loadHistoricalData().catch(e=>{console.error(e);document.querySelector('.bottom').insertAdjacentHTML('beforeend','<span style="color:#f1ad93">历史数据加载失败，请刷新页面</span>')});
+document.getElementById('close').onclick=()=>document.getElementById('overlay').classList.remove('open');document.getElementById('overlay').onclick=e=>{if(e.target.id==='overlay')e.target.classList.remove('open')};document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('overlay').classList.remove('open');if(e.target.tagName==='INPUT')return;if(e.key==='ArrowLeft'){center-=30;update()}if(e.key==='ArrowRight'){center+=30;update()}if(e.key==='+')zoom(1.4);if(e.key==='-')zoom(1/1.4)});document.getElementById('compareWindow').addEventListener('change',e=>{compareWindow=Number(e.target.value)||25;lastCompareKey='';renderComparison();renderSyncedDetails()});document.getElementById('compareCategory').addEventListener('change',()=>{lastCompareKey='';renderComparison()});document.getElementById('plus').onclick=()=>zoom(1.5);document.getElementById('minus').onclick=()=>zoom(1/1.5);document.getElementById('back').onclick=()=>{center-=100;update()};document.getElementById('forward').onclick=()=>{center+=100;update()};document.getElementById('atlasNav').onclick=()=>{location.href='./atlas.html?year='+Math.round(center)};document.getElementById('museumNav').onclick=()=>{location.href='./museum.html?from='+Math.round(center)};document.getElementById('home').onclick=()=>{center=750;scale=.23;update()};document.getElementById('random').onclick=()=>{if(!events.length)return;let e=events[Math.floor(Math.random()*events.length)];center=e.y;scale=1;update();show(e)};function search(){let q=document.getElementById('search').value.trim();if(!q)return;let e=events.find(x=>x.t.includes(q)||x.d.includes(q));if(e){center=e.y;scale=1;update();show(e)}else alert('暂未收录该事件，后续会持续扩充。')}document.getElementById('find').onclick=search;document.getElementById('search').addEventListener('keydown',e=>{if(e.key==='Enter')search()});const incoming=new URLSearchParams(location.search).get("year");if(incoming!==null&&Number.isFinite(Number(incoming)))center=clamp(Number(incoming),-1600,1949);update();loadHistoricalData().catch(e=>{console.error(e);document.querySelector('.bottom').insertAdjacentHTML('beforeend','<span style="color:#f1ad93">历史数据加载失败，请刷新页面</span>')});
 </script></body></html>
