@@ -297,7 +297,7 @@ const list=chosenPlace?related:close;
 const label=document.createElement('strong');label.textContent=chosenPlace?'关联历史事件 · '+related.length+' 条':'附近已收录事件 · '+close.length+' 条';near.append(label);
 for(const e of list){
 const button=document.createElement('button');button.type='button';button.textContent=fmt(e.y)+' · '+e.t;
-button.addEventListener('click',()=>{center=e.y;syncedSelectedEventId=e.id;syncedSelectedPlaceId=(e.placeIds||[])[0]||'';update();syncMap(e.y,e.id,syncedSelectedPlaceId)});
+button.addEventListener('click',()=>{center=e.y;update();syncedSelectedEventId=e.id;syncedSelectedPlaceId=(e.placeIds||[])[0]||'';renderSyncedDetails();syncMap(e.y,e.id,syncedSelectedPlaceId)});
 near.append(button)
 }
 document.getElementById('syncOpenAtlas').href='./atlas.html?year='+now+(event?'&event='+encodeURIComponent(event.id):'');
@@ -319,7 +319,7 @@ renderSyncedDetails();
 }
 if(data.type==='event-selected'){
 const e=events.find(e=>e.id===data.eventId);
-if(e){syncedSelectedEventId=e.id;syncedSelectedPlaceId=data.placeId||'';center=e.y;update();syncMap(e.y,e.id,syncedSelectedPlaceId);renderSyncedDetails()}
+if(e){center=e.y;update();syncedSelectedEventId=e.id;syncedSelectedPlaceId=data.placeId||'';renderSyncedDetails();syncMap(e.y,e.id,syncedSelectedPlaceId)}
 }
 });
 function update(){center=clamp(center,-1600,1949);document.getElementById('date').textContent=fmt(Math.round(center));for(const c of ['cn','world']){const sorted=events.filter(e=>e.c===c).sort((a,b)=>Math.abs(a.y-center)-Math.abs(b.y-center));const e=sorted[0];if(!e)continue;document.getElementById(c==='cn'?'ctitle':'wtitle').textContent=e.t;document.getElementById(c==='cn'?'cdesc':'wdesc').textContent=fmt(e.y)+' · '+e.d}draw();renderComparison();syncWorkspaceYear()}
