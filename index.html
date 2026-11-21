@@ -122,14 +122,14 @@ header{padding:11px 14px}
 <div class="compare-summary" id="compareSummary" aria-live="polite"></div><div id="compareColumns" class="compare-columns" aria-live="polite"></div>
 <div class="compare-footnote">时间接近不代表存在直接联系。事件地点与主题用于帮助浏览；只有具备史料依据的关系才会在后续版本中标注为传播、交流或因果联系。</div>
 </section><section class="cards"><article class="card"><div class="tag">CHINA · 中国</div><h2 id="ctitle"></h2><p id="cdesc"></p><button class="open-detail" id="copen">进入历史展厅 ↗</button></article><article class="card world"><div class="tag">WORLD · 世界</div><h2 id="wtitle"></h2><p id="wdesc"></p><button class="open-detail" id="wopen">进入历史展厅 ↗</button></article></section><section class="city-portal" aria-labelledby="cityPortalTitle"><div class="city-portal-head"><div><div class="city-portal-kicker">IMMERSIVE STORY WORLDS · 沉浸式历史专题</div><h2 id="cityPortalTitle">走进历史现场，探索文明如何相遇。</h2><p>城市场景是历史时间轴的延伸入口。它帮助理解地点、环境与交流网络，但不替代跨文明的时间对照。</p></div><a class="city-portal-all" href="./atlas.html?year=780&network=silk-road">进入历史地图 →</a></div><div class="city-portal-grid"><a class="city-tile tang" href="./atlas.html?year=780&network=silk-road&place=changan"><small>TANG DYNASTY · 780 CE</small><strong>长安</strong><span>坊市与世界之都 →</span></a><a class="city-tile oasis" href="./atlas.html?year=780&network=silk-road&place=samarkand"><small>CENTRAL ASIA · 8TH CENTURY</small><strong>撒马尔罕</strong><span>绿洲与文明交汇 →</span></a><a class="city-tile round" href="./atlas.html?year=780&network=silk-road&place=baghdad"><small>ABBASID ERA · 780 CE</small><strong>巴格达</strong><span>圆城初兴 →</span></a><a class="city-tile harbor" href="./atlas.html?year=1405&network=zheng-he&place=malacca"><small>INDIAN OCEAN · 15TH CENTURY</small><strong>马六甲</strong><span>季风与帆影 →</span></a></div></section><div class="foot">历史年代与分期存在研究差异；事件和时期均提供参考资料。拖动时间轴并点击事件节点或时期色带可查看来源。</div></main><div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="历史事件展厅"><article class="museum"><button class="close" id="close" aria-label="关闭">×</button><div class="tag" id="mtag"></div><h2 id="mtitle"></h2><p id="mdesc"></p><div class="source" id="msource"></div><div id="storyAction" style="margin-top:18px"></div></article></div><script>
-let events=[],periods=[],tracks=[],visibleTracks=new Set(),compareWindow=25,lastCompareKey='',trackRows=[];
+let events=[],periods=[],knownPlaces=[],tracks=[],visibleTracks=new Set(),compareWindow=25,lastCompareKey='',trackRows=[];
 const toDisplayYear=y=>y<=0?'前'+(1-y)+'年':'公元 '+y+' 年';
 async function loadHistoricalData(){
-const [historyResponse,tracksResponse]=await Promise.all([fetch('./data/history.json',{cache:'no-cache'}),fetch('./data/regions.json',{cache:'no-cache'})]);
-if(!historyResponse.ok||!tracksResponse.ok)throw Error('历史数据或地区轨道加载失败');
-const [data,registry]=await Promise.all([historyResponse.json(),tracksResponse.json()]);
+const [historyResponse,tracksResponse,placesResponse]=await Promise.all([fetch('./data/history.json',{cache:'no-cache'}),fetch('./data/regions.json',{cache:'no-cache'}),fetch('./data/places.json',{cache:'no-cache'})]);
+if(!historyResponse.ok||!tracksResponse.ok||!placesResponse.ok)throw Error('历史数据、地区轨道或地点数据加载失败');
+const [data,registry,placeRegistry]=await Promise.all([historyResponse.json(),tracksResponse.json(),placesResponse.json()]);
 if(!Array.isArray(data.events)||!Array.isArray(data.periods)||!Array.isArray(registry.tracks))throw Error('历史数据格式错误');
-tracks=registry.tracks;
+tracks=registry.tracks;knownPlaces=Array.isArray(placeRegistry.places)?placeRegistry.places:[];
 visibleTracks=new Set(tracks.filter(t=>t.defaultVisible).map(t=>t.id));
 events=data.events.map(e=>({id:e.id,y:e.year,t:e.title,c:e.civilization,trackId:e.trackId|| (e.civilization==='cn'?'china':'global'),d:e.summary,s:e.sourceUrl,storyId:e.storyId,placeIds:e.placeIds||[],sources:e.sources||[{url:e.sourceUrl,kind:'editorial-reference'}],region:e.region|| (e.civilization==='cn'?'东亚 · 中国':'世界其他地区'),category:e.category||'历史事件',precision:e.precision||'approximate'}));
 periods=data.periods.map(p=>({a:p.startYear,b:p.endYear,t:p.name,c:p.civilization,precision:p.precision||'approximate',sources:p.sources||[{url:p.sourceUrl,kind:'editorial-reference'}],note:p.note||'',trackId:p.trackId|| (p.civilization==='cn'?'china':'global')}));
@@ -267,12 +267,19 @@ syncedFrame.contentWindow?.postMessage(msg,location.origin);
 function renderSyncedDetails(){
 const now=Math.round(center);
 const event=events.find(e=>e.id===syncedSelectedEventId);
+const chosenPlace=knownPlaces.find(p=>p.id===syncedSelectedPlaceId);
+const related=chosenPlace?events.filter(e=>(e.placeIds||[]).includes(chosenPlace.id)).sort((a,b)=>Math.abs(a.y-now)-Math.abs(b.y-now)):[];
 const tag=document.getElementById('syncDetailTag'),title=document.getElementById('syncDetailTitle'),body=document.getElementById('syncDetailBody');
 const links=document.getElementById('syncDetailLinks');links.replaceChildren();
 const near=document.getElementById('syncNearby');near.replaceChildren();
 const close=events.filter(e=>Math.abs(e.y-now)<=compareWindow).sort((a,b)=>Math.abs(a.y-now)-Math.abs(b.y-now)).slice(0,6);
-const effective=event||close[0];
-if(effective){
+const effective=event||(!chosenPlace?close[0]:null);
+if(chosenPlace&&!event){
+tag.textContent='SELECTED PLACE · 关联历史地点';
+title.textContent=chosenPlace.name;
+body.textContent=chosenPlace.description+' · 现代近似坐标：'+chosenPlace.lat.toFixed(2)+'°, '+chosenPlace.lon.toFixed(2)+'°。以下事件是史料关联，不代表都发生在此精确位置。';
+const locLink=document.createElement('a');locLink.href='./atlas.html?year='+now+'&place='+encodeURIComponent(chosenPlace.id);locLink.textContent='在完整地图探索 ↗';links.append(locLink);
+}else if(effective){
 tag.textContent=effective.region+' · '+fmt(effective.y);
 title.textContent=effective.t;
 body.textContent=effective.d;
@@ -286,8 +293,9 @@ tag.textContent=fmt(now);
 title.textContent='当前窗口暂无已收录事件';
 body.textContent='可以扩大观察窗口，或调整时间轴到已有历史事件的年代。';
 }
-const label=document.createElement('strong');label.textContent='附近已收录事件 · '+close.length+' 条';near.append(label);
-for(const e of close){
+const list=chosenPlace?related:close;
+const label=document.createElement('strong');label.textContent=chosenPlace?'关联历史事件 · '+related.length+' 条':'附近已收录事件 · '+close.length+' 条';near.append(label);
+for(const e of list){
 const button=document.createElement('button');button.type='button';button.textContent=fmt(e.y)+' · '+e.t;
 button.addEventListener('click',()=>{center=e.y;syncedSelectedEventId=e.id;syncedSelectedPlaceId=(e.placeIds||[])[0]||'';update();syncMap(e.y,e.id,syncedSelectedPlaceId)});
 near.append(button)
@@ -305,8 +313,8 @@ if(data.type==='ready'){syncedAtlasReady=true;document.getElementById('syncMapSt
 if(data.type==='place-selected'){
 syncedSelectedPlaceId=typeof data.placeId==='string'?data.placeId:'';
 syncedSelectedEventId='';
-const local=events.filter(e=>(e.placeIds||[]).includes(syncedSelectedPlaceId)).sort((a,b)=>Math.abs(a.y-center)-Math.abs(b.y-center));
-if(local[0]){syncedSelectedEventId=local[0].id;document.getElementById('syncMapStatus').textContent='已选择地点 · '+local.length+' 条关联事件';}
+const local=events.filter(e=>(e.placeIds||[]).includes(syncedSelectedPlaceId));
+document.getElementById('syncMapStatus').textContent='已选择地点 · '+local.length+' 条关联事件';
 renderSyncedDetails();
 }
 if(data.type==='event-selected'){
